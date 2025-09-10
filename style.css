@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #f5f5f5;
+}
+
+header {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(90deg, #8B008B 0%, #A020F0 50%, #6a11cb 100%);
+  color: #fff;
+  border-bottom: 5px solid #fff;
+}
+header img.logo { width: 220px; margin-bottom: 10px; border-radius: 10px; }
+header h1 { margin: 10px 0; font-size: 2.5rem; }
+header p { margin: 5px 0; font-size: 1.2rem; }
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+.tab-link { padding: 10px 20px; cursor: pointer; background: #eee; border-radius: 6px; font-weight: bold; transition: 0.3s; }
+.tab-link.active { background: linear-gradient(45deg, #ff0080, #8a2be2); color: white; }
+
+.tab-content { display: none; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; justify-items: center; }
+.tab-content.active { display: grid; }
+
+.producto {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 480px;
+}
+.producto:hover { transform: translateY(-5px); }
+
+.img-container { width: 100%; height: 180px; overflow: hidden; border-radius: 8px; margin-bottom: 10px; }
+.producto img.main-img { width: 100%; height: 100%; object-fit: cover; }
+
+.botones-producto { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.botones-producto button { padding: 8px; border-radius: 6px; border: none; cursor: pointer; font-weight: bold; color: white; transition: 0.3s; }
+.detalle { background: linear-gradient(45deg, #2575fc, #6a11cb); }
+.detalle:hover { background: linear-gradient(45deg, #0d47a1, #4b0082); }
+.agregar-carrito { background: linear-gradient(45deg, #25D366, #128C7E); }
+.agregar-carrito:hover { background: linear-gradient(45deg, #128C7E, #075E54); }
+
+.observaciones-input { padding: 6px; border-radius: 6px; border: 1px solid #ccc; width: 100%; margin-top: 5px; }
+
+.precio { font-weight: bold; color: #2575fc; margin-top: 5px; }
+
+/* Carrito flotante */
+.carrito-flotante {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  width: auto;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  z-index: 200;
+  font-size: 14px;
+}
+
+.carrito-flotante h3 {
+  display: flex;
+  justify-content: center; /* centrado */
+  align-items: center;
+  margin-top: 0;
+  font-size: 18px;
+  color: #fff; /* blanco */
+}
+
+.carrito-flotante h3 img {
+  margin-left: 8px;
+  width: 30px;      /* más grande */
+  height: 30px;
+  filter: drop-shadow(8px 8px 8px white); /* sombra blanca */
+}
+
+#items-carrito div { padding: 8px 0; border-bottom: 1px solid #eee; }
+#items-carrito div:last-child { border-bottom: none; }
+
+#comprar-whatsapp {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #25D366;
+  border-radius: 8px;
+  background: #fff;
+  color: #25D366;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+#comprar-whatsapp img { width: 18px; height: 18px; }
+
+/* Botón flotante WhatsApp */
+#whatsapp-flotante {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  background: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 300;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+#whatsapp-flotante:hover { transform: scale(1.1); }
+#whatsapp-flotante img {
+  width: 55px;  /* más grande */
+  height: 55px;
+  filter: invert(42%) sepia(79%) saturate(470%) hue-rotate(130deg) brightness(95%) contrast(85%);
+  box-shadow: 0 0 8px white; /* sombra blanca */
+}
+
+footer { text-align: center; padding: 20px; background: #222; color: white; margin-top: 40px; }
+
+@media(max-width:768px){
+  .tab-content { grid-template-columns: 1fr; }
+  .tabs { flex-direction: column; align-items: center; }
+  .carrito-flotante { position: static; width: 100%; margin: 15px 0;}
+}
