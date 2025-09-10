@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arte y Estilo SJS</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <link rel="icon" type="image/png" href="imágenes/logo.png">
+</head>
+<body>
+
+<header>
+  <img src="imágenes/logo." alt="Logo Arte y Estilo SJS" class="logo">
+  <h1>Arte y Estilo SJS</h1>
+  <p class="slogan">“Si lo puedes imaginar, lo podemos crear”</p>
+  <p class="info-extra">✨ Envío gratis en Bogotá | 🚚 Entrega 2 a 4 días</p>
+</header>
+
+<div class="tabs">
+  <div class="tab-link active" data-tab="cobijas">Cobijas</div>
+  <div class="tab-link" data-tab="cuadros">Cuadros</div>
+  <div class="tab-link" data-tab="otros">Otros</div>
+</div>
+
+<section id="cobijas" class="tab-content active">
+  <div class="producto" data-nombre="Cobija Personalizada" data-precio="120000">
+    <div class="img-container"><img src="imágenes/cobija1.png" class="main-img"></div>
+    <h3>Cobija Personalizada</h3>
+    <p class="precio">$120.000</p>
+    <input type="text" placeholder="Información adicional obligatoria" class="observaciones-input" required>
+    <input type="file" accept="image/*" class="imagen-referencia">
+    <div class="botones-producto">
+      <button class="detalle">Detalle</button>
+      <button class="agregar-carrito">Agregar al Carrito</button>
+    </div>
+  </div>
+</section>
+
+<section id="cuadros" class="tab-content">
+  <div class="producto" data-nombre="Cuadro Personalizado" data-precio="90000">
+    <div class="img-container"><img src="imágenes/cuadro1.png" class="main-img"></div>
+    <h3>Cuadro Personalizado</h3>
+    <p class="precio">$90.000</p>
+    <input type="text" placeholder="Información adicional obligatoria" class="observaciones-input" required>
+    <input type="file" accept="image/*" class="imagen-referencia">
+    <div class="botones-producto">
+      <button class="detalle">Detalle</button>
+      <button class="agregar-carrito">Agregar al Carrito</button>
+    </div>
+  </div>
+</section>
+
+<section id="otros" class="tab-content">
+  <div class="producto" data-nombre="Forro de Puerta" data-precio="60000">
+    <div class="img-container"><img src="imágenes/forro1.png" class="main-img"></div>
+    <h3>Forro de Puerta</h3>
+    <p class="precio">$60.000</p>
+    <input type="text" placeholder="Información adicional obligatoria" class="observaciones-input" required>
+    <input type="file" accept="image/*" class="imagen-referencia">
+    <div class="botones-producto">
+      <button class="detalle">Detalle</button>
+      <button class="agregar-carrito">Agregar al Carrito</button>
+    </div>
+  </div>
+</section>
+
+<div class="carrito-flotante">
+  <h3>Carrito <img src="imágenes/carrito.png" alt=""></h3>
+  <div id="items-carrito"></div>
+  <button id="comprar-whatsapp" class="agregar-carrito"></button>
+</div>
+
+<div id="whatsapp-flotante"><img src="imágenes/whatsapp.png" alt="WhatsApp"></div>
+
+<footer>
+  <p>© 2025 Arte y Estilo SJS - Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>
