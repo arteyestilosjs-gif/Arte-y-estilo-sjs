@@ -1,0 +1,134 @@
+/* General */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+/* Header */
+header {
+  background: linear-gradient(to right, #b91c9b, #6a0dad, #4b0082);
+  color: white;
+  padding: 20px;
+}
+.logo {
+  width: 120px;
+  margin-bottom: 10px;
+}
+.slogan {
+  font-size: 18px;
+  font-style: italic;
+}
+.info-extra {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Productos */
+.productos {
+  padding: 30px;
+}
+.productos h2 {
+  margin-bottom: 20px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.producto {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.producto img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.btn-carrito, .btn-whatsapp {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+.btn-carrito {
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+}
+.btn-whatsapp {
+  background: linear-gradient(to right, #25d366, #128c7e);
+}
+
+/* Galería */
+.galeria {
+  padding: 30px;
+  background: #eee;
+}
+.carrusel {
+  overflow: hidden;
+}
+.carrusel-imagenes {
+  display: flex;
+  gap: 15px;
+  animation: mover 12s infinite linear;
+}
+.carrusel-imagenes img {
+  width: 200px;
+  border-radius: 8px;
+}
+@keyframes mover {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Carrito */
+#carrito {
+  background: #222;
+  color: white;
+  padding: 20px;
+}
+#carrito h2 {
+  color: white;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+#listaCarrito {
+  margin-bottom: 15px;
+}
+#comprarWhatsApp {
+  background: white;
+  color: black;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* WhatsApp flotante */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+.whatsapp-float img {
+  width: 70px;
+  height: 70px;
+  filter: drop-shadow(0px 0px 6px white);
+}
+
+/* Footer */
+footer {
+  background: #111;
+  color: white;
+  padding: 15px;
+  font-size: 14px;
+}
