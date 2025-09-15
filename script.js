@@ -37,7 +37,7 @@ function renderCart(){
   cart.forEach((item,idx)=>{
     const row=document.createElement('div');
     row.className='cart-row';
-    row.innerHTML=`<img src="imagenes/${item.id==='p1'?'cobija_messi.jpg': item.id==='p2'?'cobija_fotos.jpg': item.id==='p3'?'forro1.png': item.id==='p4'?'forro2.png': item.id==='p5'?'cojin1.png': item.id==='p6'?'cojin2.png':'cuadro1.png'}">
+    row.innerHTML=`<img src="imágenes/${item.id}.png">
     <div style="flex:1"><strong>${item.name}</strong></div>
     <div style="text-align:right">
       <div>Cantidad: <input type="number" min="1" value="${item.qty}" data-idx="${idx}" class="cart-qty"></div>
@@ -92,14 +92,8 @@ function finalizeOrder(e){
   let msg='Hola, quiero hacer un pedido:%0A';
   cart.forEach(i=>msg+=`- ${i.name} x${i.qty} - $${(i.price*i.qty).toLocaleString()}%0A`);
   const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
-  msg+=`%0ATotal: $${total.toLocaleString()}%0A`;
-  msg+=`%0ANombre: ${encodeURIComponent(name)}%0A`;
-  if(note) msg+=`Nota: ${encodeURIComponent(note)}%0A`;
-  if(fileAttached) msg+=`%0AEl cliente adjuntó una imagen para personalización.%0A`;
-  const phone='573213887844';
-  window.open(`https://wa.me/${phone}?text=${msg}`,'_blank');
-  cart.length=0;
-  renderCart();
+  msg+=`%0ATotal: $${total.toLocaleString()}%0ANombre: ${name}%0ANota: ${note}`;
+  if(fileAttached) msg+='%0A[Adjunto imagen]';
+  const waLink='https://wa.me/573213887844?text='+msg;
+  window.open(waLink,'_blank');
 }
-
-document.addEventListener('DOMContentLoaded',()=>scrollToSection('catalogo'));
