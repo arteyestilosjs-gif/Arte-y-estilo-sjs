@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Arte y Estilo SJS</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js" defer></script>
+<link rel="icon" type="image/png" href="imagenes/logo.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-left" onclick="scrollToSection('catalogo')">
+    <img src="imagenes/logo.png" alt="logo" class="logo">
+    <div>
+      <h1>Arte y Estilo SJS</h1>
+      <p class="slogan">“Si lo puedes imaginar, lo podemos crear”</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <p class="banner-envio">🚚 Envío gratis • Entrega 2 a 4 días</p>
+    <a class="whatsapp-top" href="https://wa.me/573213887844" target="_blank">Contactar por WhatsApp</a>
+  </div>
+</header>
+
+<nav class="main-nav">
+  <button onclick="scrollToSection('catalogo')">Catálogo</button>
+  <button onclick="scrollToSection('galeria')">Galería</button>
+  <button onclick="scrollToSection('carrito')">Carrito (<span id='cart-count'>0</span>)</button>
+  <button onclick="scrollToSection('contacto')">Contacto</button>
+</nav>
+
+<main>
+
+<!-- CATÁLOGO -->
+<section id="catalogo" class="tabs active">
+  <h2>Catálogo</h2>
+  <a class="back-link" onclick="scrollToSection('catalogo')">Regresar al inicio</a>
+  <div class="grid productos">
+    <!-- Productos p1 a p24 -->
+    <div class="producto" data-id="p1" data-name="Cobija Deportiva" data-price="120000">
+      <span class='badge'>🔥 Más vendido</span>
+      <img src="imagenes/cobija_messi.jpg" alt="Cobija Deportiva">
+      <h3>Cobija Deportiva</h3>
+      <p class="meta">Medidas: 150x200 cm</p>
+      <p class="price">$120,000</p>
+      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
+      <button class="add">Agregar al carrito</button>
+    </div>
+    <div class="producto" data-id="p2" data-name="Cobija Bebé" data-price="90000">
+      <span class='badge'>✨ Oferta</span>
+      <img src="imagenes/cobija_fotos.jpg" alt="Cobija Bebé">
+      <h3>Cobija Bebé</h3>
+      <p class="meta">Medidas: 100x140 cm</p>
+      <p class="price">$90,000</p>
+      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
+      <button class="add">Agregar al carrito</button>
+    </div>
+    <div class="producto" data-id="p3" data-name="Forro Navidad 1" data-price="60000">
+      <img src="imagenes/forro1.png" alt="Forro Navidad 1">
+      <h3>Forro Navidad 1</h3>
+      <p class="meta">Medidas: 80x200 cm</p>
+      <p class="price">$60,000</p>
+      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
+      <button class="add">Agregar al carrito</button>
+    </div>
+    <div class="producto" data-id="p4" data-name="Forro Navidad 2" data-price="60000">
+      <img src="imagenes/forro2.png" alt="Forro Navidad 2">
+      <h3>Forro Navidad 2</h3>
+      <p class="meta">Medidas: 80x200 cm</p>
+      <p class="price">$60,000</p>
+      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
+      <button class="add">Agregar al carrito</button>
+    </div>
+    <div class="producto" data-id="p5" data-name="Cojín Personalizado" data-price="50000">
+      <img src="imagenes/cojin1.png" alt="Cojín Personalizado">
+      <h3>Cojín Personalizado</h3>
+      <p class="meta">Medidas: 40x40 cm</p>
+      <p class="price">$50,000</p>
+      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
+      <button class="add">Agregar al carrito</button>
+    </div>
+    <div class="producto" data-id="p6" data-name="Cojín Cumpleaños" data-price="52000">
+      <img src="imagenes/cojin2.png" alt="Cojín Cumpleaños">
+      <h3>Cojín Cumpleaños</h3>
+      <p class="meta">Medidas: 40x40 cm</p>
+      <p class="price">$52,000</p>
+      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
+      <button class="add">Agregar al carrito</button>
+    </div>
+    <div class="producto" data-id="p7" data-name="Cuadro Collage" data-price="80000">
+      <span class='badge'>🎨 Tu diseño único</span>
+      <img src="imagenes/cuadro1.png" alt="Cuadro Collage">
+      <h3>Cuadro Collage</h3>
+      <p class="meta">Medidas: A4, A3, 50x70 cm</p>
+      <p class="price">$80,000</p>
+      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
+      <button class="add">Agregar al carrito</button>
+    </div>
+    <!-- Añadir productos p8 a p24 de forma similar -->
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria" class="tabs">
+  <h2>Galería</h2>
+  <a class="back-link" onclick="scrollToSection('catalogo')">Regresar al inicio</a>
+  <div class="carousel">
+    <div class="track">
+      <img src='imagenes/cobija_messi.jpg' alt='img'>
+      <img src='imagenes/cobija_fotos.jpg' alt='img'>
+      <img src='imagenes/forro1.png' alt='img'>
+      <img src='imagenes/cojin1.png' alt='img'>
+    </div>
+  </div>
+  <p>Sube más fotos (vista previa local)</p>
+  <input id='gallery-upload' type='file' accept='image/*' multiple>
+  <div id='gallery-grid' class='productos'></div>
+</section>
+
+<!-- CARRITO -->
+<section id="carrito" class="tabs">
+  <h2>Pago contra entrega (solo en Bogotá)</h2>
+  <a class="back-link" onclick="scrollToSection('catalogo')">Regresar al inicio</a>
+  <div id="cart-items"></div>
+  <div id="cart-summary"></div>
+  <h3>Personalización</h3>
+  <form id="order-form" onsubmit="finalizeOrder(event)">
+    <label>Nombre para personalizar:<br><input type="text" id="customer-name" required></label><br>
+    <label>Comentario adicional:<br><textarea id="customer-note"></textarea></label><br>
+    <label>Adjuntar imagen (opcional):<br><input type="file" id="customer-file" accept="image/*"></label><br>
+    <button type="submit" class="btn-final">Finalizar pedido y enviar por WhatsApp</button>
+  </form>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="tabs">
+  <h2>Contacto</h2>
+  <a class="back-link" onclick="scrollToSection('catalogo')">Regresar al inicio</a>
+  <p>WhatsApp: <a href="https://wa.me/573213887844" target="_blank">+57 321 388 7844</a></p>
+  <p>Email: contacto@arteyestilosjs.com</p>
+</section>
+
+</main>
+
+<footer>
+  <p>© Arte y Estilo SJS • Envío gratis en Bogotá • Entrega 2 a 4 días</p>
+</footer>
+
+</body>
+</html>
