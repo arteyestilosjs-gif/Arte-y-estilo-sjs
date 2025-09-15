@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Arte y Estilo SJS</title>
-<link rel="stylesheet" href="css/style.css">
-<script src="js/script.js" defer></script>
-<link rel="icon" type="image/png" href="imágenes/logo.png">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+<link rel="icon" type="image/png" href="imagenes/logo.png">
 </head>
 <body>
 
 <header class="site-header">
   <div class="header-left" onclick="scrollToSection('catalogo')" style="cursor:pointer;">
-    <img src="imágenes/logo.png" alt="logo" class="logo">
+    <img src="imagenes/logo.png" alt="logo" class="logo">
     <div>
       <h1>Arte y Estilo SJS</h1>
       <p class="slogan">“Si lo puedes imaginar, lo podemos crear”</p>
@@ -38,11 +38,10 @@
   <h2>Catálogo</h2>
   <div class="grid productos">
 
-    <!-- Productos p1 a p24 -->
-    <!-- Ejemplo: p1 -->
+    <!-- Ejemplo productos -->
     <div class="producto" data-id="p1" data-name="Cobija Deportiva" data-price="120000">
       <span class='badge'>🔥 Más vendido</span>
-      <img src="imágenes/cobija_messi.jpg" alt="Cobija Deportiva">
+      <img src="imagenes/cobija_messi.jpg" alt="Cobija Deportiva">
       <h3>Cobija Deportiva</h3>
       <p class="meta">Medidas: 150x200 cm</p>
       <p class="price">$120,000</p>
@@ -52,7 +51,7 @@
 
     <div class="producto" data-id="p2" data-name="Cobija Bebé" data-price="90000">
       <span class='badge'>✨ Oferta</span>
-      <img src="imágenes/cobija_fotos.jpg" alt="Cobija Bebé">
+      <img src="imagenes/cobija_fotos.jpg" alt="Cobija Bebé">
       <h3>Cobija Bebé</h3>
       <p class="meta">Medidas: 100x140 cm</p>
       <p class="price">$90,000</p>
@@ -60,10 +59,7 @@
       <button class="add">Agregar al carrito</button>
     </div>
 
-    <!-- Productos p3 a p24 -->
-    <!-- Para ahorrar espacio aquí, se pueden copiar y adaptar el patrón de los productos previos -->
-    <!-- Cada producto debe tener data-id único, nombre, precio, imagen correspondiente en la carpeta 'imágenes' -->
-
+    <!-- Agregar más productos siguiendo el mismo patrón -->
   </div>
 </section>
 
@@ -73,10 +69,10 @@
   <p>Vista previa de imágenes</p>
   <div class="carousel">
     <div class="track">
-      <img src="imágenes/cobija_messi.jpg" alt="img">
-      <img src="imágenes/cobija_fotos.jpg" alt="img">
-      <img src="imágenes/forro1.png" alt="img">
-      <img src="imágenes/cojin1.png" alt="img">
+      <img src="imagenes/cobija_messi.jpg" alt="img">
+      <img src="imagenes/cobija_fotos.jpg" alt="img">
+      <img src="imagenes/forro1.png" alt="img">
+      <img src="imagenes/cojin1.png" alt="img">
     </div>
   </div>
   <p>Sube más fotos (vista previa local)</p>
