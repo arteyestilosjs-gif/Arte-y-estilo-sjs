@@ -1,39 +1,42 @@
-body{font-family:'Arial',sans-serif;margin:0;padding:0;background:#f9f9f9;color:#333;}
-header,main,footer{width:100%;max-width:1200px;margin:0 auto;}
-/* Header */
+/* Logo y encabezado */
 .site-header{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px;}
-.logo{height:130px;margin-bottom:6px;}
-.site-header h1{text-align:center;font-size:32px;color:#8e44ad;margin:0;}
-.slogan{font-size:14px;text-align:center;color:#666;margin:0;}
+.logo{height:120px;margin-bottom:6px;}
+.site-header h1{text-align:center;font-size:28px;color:#8e44ad;}
+.slogan{font-size:14px;text-align:center;color:#666;}
+
 /* Navegación */
 .main-nav{display:flex;gap:8px;justify-content:center;padding:8px;background:#fff;border-bottom:1px solid #eee;flex-wrap:wrap;}
-.main-nav button{background:#4DA6FF;color:#fff;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;transition:0.3s;font-size:14px;}
+.main-nav button{background:#4DA6FF;color:#fff;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;transition:0.3s;}
 .main-nav button:hover{background:#357ABD;}
+
 /* Productos */
 .grid.productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
 .producto{background:#fff;border-radius:10px;padding:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06);position:relative;text-align:left;transition:0.3s;}
 .producto img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:8px;}
 .controls input[type=number]{width:50px;padding:4px;border-radius:6px;border:1px solid #ddd;}
-.add{background:#4DA6FF;color:#fff;border:none;padding:4px 8px;border-radius:6px;cursor:pointer;width:auto;margin-top:6px;}
+.add{background:#4DA6FF;color:#fff;border:none;padding:6px 8px;border-radius:8px;cursor:pointer;width:auto;margin-top:6px;}
 .add:hover{background:#357ABD;}
+
 /* Carrito */
 #cart-items .cart-row{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #eee;}
 #cart-items .cart-row img{width:80px;height:60px;object-fit:cover;border-radius:6px;}
-textarea,input{width:100%;padding:6px;border-radius:6px;border:1px solid #ddd;margin-bottom:6px;}
+textarea,input{width:100%;padding:6px;border-radius:6px;border:1px solid #ddd;}
 .btn-final{background:#4DA6FF;color:#fff;padding:8px 12px;border-radius:8px;border:0;cursor:pointer;margin-top:12px;width:100%;transition:0.3s;}
 .btn-final:hover{background:#357ABD;}
+
 /* Botón flotante */
-#back-top{position:fixed;bottom:20px;right:20px;padding:10px 12px;border:none;background:#4DA6FF;color:#fff;border-radius:50%;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.2);transition:0.3s;z-index:999;}
+#back-top{position:fixed;bottom:20px;right:20px;padding:10px 12px;border:none;background:#4DA6FF;color:#fff;border-radius:50%;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.2);transition:0.3s;}
 #back-top:hover{background:#357ABD;}
+
 /* Galería */
 .carousel{overflow:hidden;margin-top:10px;}
 .carousel .track{display:flex;gap:6px;animation:slide 18s linear infinite;}
 .carousel img{width:320px;height:200px;object-fit:cover;border-radius:8px;}
 @keyframes slide{0%{transform:translateX(0)}50%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+
 /* Responsive */
 @media(max-width:768px){
   .logo{height:100px;}
   .carousel img{width:220px;height:140px;}
   .producto img{height:140px;}
-  .main-nav button{padding:4px 8px;font-size:12px;}
 }
