@@ -1,90 +1,72 @@
-let cart = [];
+const cart = [];
 
-document.addEventListener('DOMContentLoaded', () => {
-  const addButtons = document.querySelectorAll('.add');
-  addButtons.forEach(btn => {
-    btn.addEventListener('click', addToCart);
+document.querySelectorAll('.add').forEach(btn => {
+  btn.addEventListener('click', e => {
+    const productDiv = e.target.closest('.producto');
+    const id = productDiv.dataset.id;
+    const name = productDiv.dataset.name;
+    const price = parseInt(productDiv.dataset.price);
+    const qty = parseInt(productDiv.querySelector('.qty').value);
+
+    const existing = cart.find(p => p.id === id);
+    if (existing) {
+      existing.qty += qty;
+    } else {
+      cart.push({id, name, price, qty});
+    }
+
+    updateCart();
+    scrollToSection('carrito');
   });
-  updateCartDisplay();
 });
 
-// Scroll a secciones
-function scrollToSection(id) {
-  const section = document.getElementById(id);
-  if(section) {
-    section.scrollIntoView({behavior: 'smooth'});
-  }
-}
-
-// Agregar producto al carrito
-function addToCart(e) {
-  const productDiv = e.target.closest('.producto');
-  const id = productDiv.dataset.id;
-  const name = productDiv.dataset.name;
-  const price = parseInt(productDiv.dataset.price);
-  const qty = parseInt(productDiv.querySelector('.qty').value);
-
-  const existing = cart.find(item => item.id === id);
-  if(existing) {
-    existing.qty += qty;
-  } else {
-    cart.push({id, name, price, qty});
-  }
-
-  updateCartDisplay();
-  scrollToSection('carrito');
-}
-
-// Actualizar carrito
-function updateCartDisplay() {
-  const cartItemsDiv = document.getElementById('cart-items');
-  const cartCountSpan = document.getElementById('cart-count');
-  const cartSummaryDiv = document.getElementById('cart-summary');
-
-  cartItemsDiv.innerHTML = '';
+function updateCart() {
+  const cartItems = document.getElementById('cart-items');
+  cartItems.innerHTML = '';
   let total = 0;
-  cart.forEach((item, index) => {
-    const itemDiv = document.createElement('div');
-    itemDiv.className = 'cart-item';
-    itemDiv.innerHTML = `
-      ${item.name} x ${item.qty} - $${item.price * item.qty}
-      <button onclick="removeItem(${index})">❌</button>
+  cart.forEach(p => {
+    total += p.price * p.qty;
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <span>${p.name} x${p.qty} - $${p.price * p.qty}</span>
+      <button onclick="removeFromCart('${p.id}')">❌</button>
     `;
-    cartItemsDiv.appendChild(itemDiv);
-    total += item.price * item.qty;
+    cartItems.appendChild(div);
   });
 
-  cartCountSpan.textContent = cart.length;
-  cartSummaryDiv.textContent = `Total: $${total}`;
+  const cartSummary = document.getElementById('cart-summary');
+  cartSummary.innerHTML = `<strong>Total: $${total}</strong>`;
+
+  document.getElementById('cart-count').textContent = cart.reduce((a,b)=>a+b.qty,0);
 }
 
-// Quitar item
-function removeItem(index) {
-  cart.splice(index, 1);
-  updateCartDisplay();
+function removeFromCart(id) {
+  const index = cart.findIndex(p => p.id === id);
+  if(index >= 0) cart.splice(index,1);
+  updateCart();
 }
 
-// Finalizar pedido
-function finalizeOrder(event) {
-  event.preventDefault();
+function scrollToSection(id) {
+  const section = document.getElementById(id);
+  section.scrollIntoView({behavior: 'smooth'});
+}
+
+function finalizeOrder(e) {
+  e.preventDefault();
   const name = document.getElementById('customer-name').value;
   const note = document.getElementById('customer-note').value;
 
-  if(cart.length === 0){
-    alert('El carrito está vacío');
-    return;
-  }
-
-  let message = `Hola, soy ${name}.\nQuiero comprar:\n`;
-  cart.forEach(item => {
-    message += `- ${item.name} x ${item.qty}\n`;
+  let msg = `Hola! Soy ${name}. Quiero pedir:\n`;
+  cart.forEach(p => {
+    msg += `${p.name} x${p.qty} = $${p.price*p.qty}\n`;
   });
-  message += `Observaciones: ${note}`;
+  if(note) msg += `Notas: ${note}`;
 
-  const whatsappURL = `https://wa.me/573213887844?text=${encodeURIComponent(message)}`;
-  window.open(whatsappURL, '_blank');
+  const url = `https://wa.me/573213887844?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
 
-  cart = [];
-  updateCartDisplay();
+  cart.length = 0;
+  updateCart();
   document.getElementById('order-form').reset();
 }
