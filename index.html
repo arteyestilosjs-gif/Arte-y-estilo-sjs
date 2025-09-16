@@ -10,15 +10,10 @@
 </head>
 <body>
 
-<!-- LINK FLOTANTE REGRESAR AL INICIO -->
-<a class="floating" onclick="scrollToSection('logo')">⬆️ Inicio</a>
-
-<header class="site-header" id="logo">
-  <div class="header-center">
-    <img src="imágenes/logo.png" alt="logo" class="logo">
-    <h1>Arte y Estilo SJS</h1>
-    <p class="slogan">“Si lo puedes imaginar, lo podemos crear”</p>
-  </div>
+<header class="site-header">
+  <img src="imágenes/logo.png" alt="logo" class="logo">
+  <h1>Arte y Estilo SJS</h1>
+  <p class="slogan">“Si lo puedes imaginar, lo podemos crear”</p>
 </header>
 
 <nav class="main-nav">
@@ -29,12 +24,11 @@
 </nav>
 
 <main>
+
 <!-- CATÁLOGO -->
 <section id="catalogo" class="tabs">
   <h2 class="center-title">Catálogo</h2>
   <div class="grid productos">
-
-    <!-- Productos (12) -->
     <div class="producto" data-id="p1" data-name="Cobija Deportiva" data-price="120000">
       <span class='badge'>🔥 Más vendido</span>
       <img src="imágenes/cobija_messi.jpg" alt="Cobija Deportiva">
@@ -173,14 +167,12 @@
 
 <!-- CARRITO -->
 <section id="carrito" class="tabs">
-  <h2 class="center-title">Carrito de compras 🛒</h2>
-  <div class="cart-banner">Pago contra entrega (solo en Bogotá) • Entrega aproximada 2 a 4 días</div>
+  <h2 class="center-title">Pago contra entrega (solo en Bogotá)</h2>
   <div id="cart-items"></div>
   <div id="cart-summary"></div>
-  <h3>Datos del comprador</h3>
   <form id="order-form" onsubmit="finalizeOrder(event)">
-    <label>Nombre:<br><input type="text" id="customer-name" required class="small-input"></label><br>
-    <label>Observaciones (ingresa todo lo que deseas que lleve el producto):<br><textarea id="customer-note" class="small-textarea"></textarea></label><br>
+    <label>Nombre:<br><input type="text" id="customer-name" required></label><br>
+    <label>Observaciones:<br><textarea id="customer-note" placeholder="Ingrese todo lo que quiere que lleve el producto seleccionado"></textarea></label><br>
     <button type="submit" class="btn-final">Finalizar pedido y enviar por WhatsApp</button>
   </form>
 </section>
@@ -192,13 +184,12 @@
   <p>Email: contacto@arteyestilosjs.com</p>
 </section>
 
-<!-- WHATSAPP FLOTANTE -->
-<a class="whatsapp-float" href="https://wa.me/573213887844" target="_blank">💬 WhatsApp</a>
+<a class="back-link floating" onclick="scrollToSection('catalogo')">🏠 Regresar al inicio</a>
+<a class="whatsapp-bottom" href="https://wa.me/573213887844" target="_blank">Contactar por WhatsApp</a>
 
 <footer>
-  <p>© Arte y Estilo SJS • Envío gratis en Bogotá • Entrega 2 a 4 días</p>
+  <p>© Arte y Estilo SJS</p>
 </footer>
 
-</main>
 </body>
 </html>
