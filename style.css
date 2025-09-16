@@ -3,16 +3,21 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #fafafa;
+  background-color: #fff8f0;
+  color: #333;
+}
+
+h1, h2, h3 {
+  margin: 0.5em 0;
 }
 
 /* Header */
 .site-header {
   display: flex;
   align-items: center;
+  background-color: #ff7043;
   padding: 10px 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  color: #fff;
 }
 
 .site-header .logo {
@@ -21,99 +26,155 @@ body {
 }
 
 .titulo-logo {
-  margin: 0;
+  font-size: 1.8rem;
+  margin-bottom: 5px;
 }
 
 .slogan {
-  margin: 0;
   font-size: 0.9rem;
-  color: #555;
+  font-style: italic;
 }
 
-/* Navegación */
+/* Navbar */
 .main-nav {
   display: flex;
   justify-content: center;
-  background-color: #ff6600;
+  background-color: #ffab91;
+  padding: 10px 0;
+  gap: 15px;
 }
 
 .main-nav button {
-  background: none;
-  border: none;
-  color: white;
-  padding: 10px 15px;
+  background-color: #fff3e0;
+  border: 1px solid #ff7043;
+  color: #ff7043;
+  padding: 8px 12px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 1rem;
+  font-weight: bold;
 }
 
 .main-nav button:hover {
-  background-color: #e65c00;
+  background-color: #ff7043;
+  color: #fff;
+}
+
+/* Banner de ventas */
+.banner-ventas {
+  background-color: #ffd54f;
+  color: #bf360c;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  border-radius: 5px;
 }
 
 /* Catálogo */
 .grid.productos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 15px;
-  padding: 10px;
+  padding: 15px;
 }
 
 .producto {
-  border: 1px solid #ddd;
+  background-color: #fff3e0;
+  border: 1px solid #ffccbc;
   border-radius: 10px;
   padding: 10px;
   text-align: center;
-  background-color: #fff;
   transition: transform 0.2s;
 }
 
 .producto:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transform: scale(1.03);
 }
 
 .producto img {
   width: 100%;
-  height: 200px;
-  object-fit: contain;
-  border-radius: 8px;
-  background-color: #f5f5f5;
-}
-
-.controls input.qty {
-  width: 50px;
-  text-align: center;
-}
-
-button.add {
-  margin-top: 5px;
-  padding: 5px 10px;
-  border: none;
+  height: 300px;
+  object-fit: cover;
   border-radius: 5px;
-  background-color: #ff6600;
-  color: white;
+}
+
+.badge {
+  background-color: #ff7043;
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+/* Botones de producto */
+button.add {
+  background-color: #ff7043;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
+  margin-top: 5px;
 }
 
 button.add:hover {
-  background-color: #e65c00;
+  background-color: #e64a19;
 }
 
-/* Galería */
+/* Carousel Galería */
 .carousel {
   overflow-x: auto;
-  white-space: nowrap;
-  padding: 10px 0;
+  padding: 10px;
 }
 
-.carousel .track img {
-  width: 200px;
-  height: auto;
-  margin-right: 10px;
-  display: inline-block;
+.track {
+  display: flex;
+  gap: 10px;
+}
+
+.track img {
+  height: 250px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Carrito */
+#cart-items, #cart-summary {
+  background-color: #fff3e0;
+  border: 1px solid #ffccbc;
   border-radius: 10px;
-  object-fit: contain;
-  background-color: #f5f5f5;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.btn-final {
+  background-color: #ff7043;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-final:hover {
+  background-color: #e64a19;
+}
+
+/* Contacto */
+#contacto a {
+  color: #ff7043;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#contacto a:hover {
+  text-decoration: underline;
 }
 
 /* Botón flotante */
@@ -121,22 +182,24 @@ button.add:hover {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  padding: 10px 15px;
-  font-size: 1.2rem;
+  background-color: #ff7043;
+  color: #fff;
   border: none;
+  padding: 10px 12px;
   border-radius: 50%;
-  background-color: #ff6600;
-  color: white;
   cursor: pointer;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  z-index: 1000;
+  font-size: 1.2rem;
+}
+
+#back-top:hover {
+  background-color: #e64a19;
 }
 
 /* Footer */
 footer {
+  background-color: #ff7043;
+  color: #fff;
   text-align: center;
-  padding: 10px;
-  background-color: #fff;
+  padding: 10px 0;
   margin-top: 20px;
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
 }
