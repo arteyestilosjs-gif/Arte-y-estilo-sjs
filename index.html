@@ -10,9 +10,6 @@
 </head>
 <body>
 
-<!-- BOTÓN FLOTANTE REGRESAR -->
-<button id="back-top" onclick="scrollToSection('catalogo')">⬆ Inicio</button>
-
 <header class="site-header">
   <div class="header-left">
     <img src="imagenes/logo.png" alt="logo" class="logo">
@@ -36,7 +33,6 @@
 <section id="catalogo" class="tabs active">
   <h2>Catálogo</h2>
   <div class="grid productos">
-
     <!-- 12 Productos ejemplo -->
     <div class="producto" data-id="p1" data-name="Cobija Deportiva" data-price="120000">
       <span class='badge'>🔥 Más vendido</span>
@@ -149,7 +145,6 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-
   </div>
 </section>
 
@@ -161,6 +156,7 @@
       <img src='imagenes/cobija_messi.jpg' alt='img'>
       <img src='imagenes/cobija_fotos.jpg' alt='img'>
       <img src='imagenes/forro1.png' alt='img'>
+      <img src='imagenes/forro2.png' alt='img'>
       <img src='imagenes/cojin1.png' alt='img'>
       <img src='imagenes/cojin2.png' alt='img'>
       <img src='imagenes/cuadro1.png' alt='img'>
@@ -169,7 +165,6 @@
       <img src='imagenes/cojines_set.png' alt='img'>
       <img src='imagenes/tapete.png' alt='img'>
       <img src='imagenes/portavelas.png' alt='img'>
-      <img src='imagenes/forro2.png' alt='img'>
     </div>
   </div>
 </section>
@@ -182,8 +177,8 @@
   <h3>Observaciones</h3>
   <form id="order-form" onsubmit="finalizeOrder(event)">
     <label>Nombre:<br><input type="text" id="customer-name" required></label><br>
-    <label>Comentarios adicionales:<br><textarea id="customer-note" placeholder="Ingresa todo lo que quieres que lleve tu pedido"></textarea></label><br>
-    <button type="submit" class="btn-final">Finalizar compra por WhatsApp</button>
+    <label>Ingrese todo lo que desea que lleve el producto:<br><textarea id="customer-note"></textarea></label><br>
+    <button type="submit" class="btn-final">Finalizar pedido</button>
   </form>
 </section>
 
@@ -194,10 +189,11 @@
   <p>Email: contacto@arteyestilosjs.com</p>
 </section>
 
-</main>
+<!-- Botón flotante -->
+<button id="back-top" onclick="scrollToSection('catalogo')">⬆️</button>
 
 <footer>
-  <p>© Arte y Estilo SJS </p>
+  <p>© Arte y Estilo SJS • Envío gratis en Bogotá • Entrega aproximada de 2 a 4 días</p>
 </footer>
 
 </body>
