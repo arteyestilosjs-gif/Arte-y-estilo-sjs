@@ -10,11 +10,14 @@
 </head>
 <body>
 
-<header class="site-header">
+<!-- LINK FLOTANTE REGRESAR AL INICIO -->
+<a class="floating" onclick="scrollToSection('logo')">⬆️ Inicio</a>
+
+<header class="site-header" id="logo">
   <div class="header-center">
     <img src="imágenes/logo.png" alt="logo" class="logo">
     <h1>Arte y Estilo SJS</h1>
-    <p class="slogan">¡Si lo puedes imaginar, lo podemos crear! 🎨✨</p>
+    <p class="slogan">“Si lo puedes imaginar, lo podemos crear”</p>
   </div>
 </header>
 
@@ -25,16 +28,15 @@
   <button onclick="scrollToSection('contacto')">Contacto</button>
 </nav>
 
-<a class="back-link floating" onclick="scrollToSection('catalogo')">⬆️ Regresar al inicio</a>
-
 <main>
-
 <!-- CATÁLOGO -->
-<section id="catalogo">
+<section id="catalogo" class="tabs">
   <h2 class="center-title">Catálogo</h2>
   <div class="grid productos">
+
+    <!-- Productos (12) -->
     <div class="producto" data-id="p1" data-name="Cobija Deportiva" data-price="120000">
-      <span class='badge'>🔥 ¡Más vendido!</span>
+      <span class='badge'>🔥 Más vendido</span>
       <img src="imágenes/cobija_messi.jpg" alt="Cobija Deportiva">
       <h3>Cobija Deportiva</h3>
       <p class="meta">Medidas: 150x200 cm</p>
@@ -42,8 +44,9 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar al carrito</button>
     </div>
+
     <div class="producto" data-id="p2" data-name="Cobija Bebé" data-price="90000">
-      <span class='badge'>✨ Oferta especial</span>
+      <span class='badge'>✨ Oferta</span>
       <img src="imágenes/cobija_fotos.jpg" alt="Cobija Bebé">
       <h3>Cobija Bebé</h3>
       <p class="meta">Medidas: 100x140 cm</p>
@@ -51,6 +54,7 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar al carrito</button>
     </div>
+
     <div class="producto" data-id="p3" data-name="Forro Navidad 1" data-price="60000">
       <span class='badge'>🌟 Edición limitada</span>
       <img src="imágenes/forro1.png" alt="Forro Navidad 1">
@@ -60,6 +64,7 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar al carrito</button>
     </div>
+
     <div class="producto" data-id="p4" data-name="Forro Navidad 2" data-price="60000">
       <img src="imágenes/forro2.png" alt="Forro Navidad 2">
       <h3>Forro Navidad 2</h3>
@@ -68,6 +73,7 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar al carrito</button>
     </div>
+
     <div class="producto" data-id="p5" data-name="Cojín Personalizado" data-price="50000">
       <img src="imágenes/cojin1.png" alt="Cojín Personalizado">
       <h3>Cojín Personalizado</h3>
@@ -76,6 +82,7 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar al carrito</button>
     </div>
+
     <div class="producto" data-id="p6" data-name="Cojín Cumpleaños" data-price="52000">
       <img src="imágenes/cojin2.png" alt="Cojín Cumpleaños">
       <h3>Cojín Cumpleaños</h3>
@@ -84,6 +91,7 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar al carrito</button>
     </div>
+
     <div class="producto" data-id="p7" data-name="Cuadro Collage" data-price="80000">
       <span class='badge'>🎨 Tu diseño único</span>
       <img src="imágenes/cuadro1.png" alt="Cuadro Collage">
@@ -93,6 +101,7 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar al carrito</button>
     </div>
+
     <div class="producto" data-id="p8" data-name="Almohada Decorativa" data-price="45000">
       <img src="imágenes/almohada.png" alt="Almohada Decorativa">
       <h3>Almohada Decorativa</h3>
@@ -101,6 +110,7 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar al carrito</button>
     </div>
+
     <div class="producto" data-id="p9" data-name="Manta Suave" data-price="70000">
       <img src="imágenes/manta.png" alt="Manta Suave">
       <h3>Manta Suave</h3>
@@ -109,6 +119,7 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar al carrito</button>
     </div>
+
     <div class="producto" data-id="p10" data-name="Juego de Cojines" data-price="95000">
       <img src="imágenes/cojines_set.png" alt="Juego de Cojines">
       <h3>Juego de Cojines</h3>
@@ -117,6 +128,7 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar al carrito</button>
     </div>
+
     <div class="producto" data-id="p11" data-name="Tapete Decorativo" data-price="85000">
       <img src="imágenes/tapete.png" alt="Tapete Decorativo">
       <h3>Tapete Decorativo</h3>
@@ -125,6 +137,7 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar al carrito</button>
     </div>
+
     <div class="producto" data-id="p12" data-name="Porta Velas" data-price="35000">
       <img src="imágenes/portavelas.png" alt="Porta Velas">
       <h3>Porta Velas</h3>
@@ -133,53 +146,59 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar al carrito</button>
     </div>
+
   </div>
 </section>
 
 <!-- GALERÍA -->
-<section id="galeria">
+<section id="galeria" class="tabs">
   <h2 class="center-title">Galería</h2>
   <div class="carousel">
     <div class="track">
-      <img src="imágenes/cobija_messi.jpg" alt="img">
-      <img src="imágenes/cobija_fotos.jpg" alt="img">
-      <img src="imágenes/forro1.png" alt="img">
-      <img src="imágenes/forro2.png" alt="img">
-      <img src="imágenes/cojin1.png" alt="img">
-      <img src="imágenes/cojin2.png" alt="img">
-      <img src="imágenes/cuadro1.png" alt="img">
-      <img src="imágenes/almohada.png" alt="img">
-      <img src="imágenes/manta.png" alt="img">
-      <img src="imágenes/cojines_set.png" alt="img">
-      <img src="imágenes/tapete.png" alt="img">
-      <img src="imágenes/portavelas.png" alt="img">
+      <img src="imágenes/cobija_messi.jpg" alt="Cobija Deportiva">
+      <img src="imágenes/cobija_fotos.jpg" alt="Cobija Bebé">
+      <img src="imágenes/forro1.png" alt="Forro Navidad 1">
+      <img src="imágenes/forro2.png" alt="Forro Navidad 2">
+      <img src="imágenes/cojin1.png" alt="Cojín Personalizado">
+      <img src="imágenes/cojin2.png" alt="Cojín Cumpleaños">
+      <img src="imágenes/cuadro1.png" alt="Cuadro Collage">
+      <img src="imágenes/almohada.png" alt="Almohada Decorativa">
+      <img src="imágenes/manta.png" alt="Manta Suave">
+      <img src="imágenes/cojines_set.png" alt="Juego de Cojines">
+      <img src="imágenes/tapete.png" alt="Tapete Decorativo">
+      <img src="imágenes/portavelas.png" alt="Porta Velas">
     </div>
   </div>
 </section>
 
 <!-- CARRITO -->
-<section id="carrito">
-  <h2 class="banner">Pago contra entrega (solo en Bogotá)</h2>
+<section id="carrito" class="tabs">
+  <h2 class="center-title">Carrito de compras 🛒</h2>
+  <div class="cart-banner">Pago contra entrega (solo en Bogotá) • Entrega aproximada 2 a 4 días</div>
   <div id="cart-items"></div>
   <div id="cart-summary"></div>
-  <h3 class="banner">Observaciones del pedido</h3>
+  <h3>Datos del comprador</h3>
   <form id="order-form" onsubmit="finalizeOrder(event)">
-    <label>Nombre del comprador:<br><input type="text" id="customer-name" required></label><br>
-    <label>Comentarios adicionales:<br><textarea id="customer-note" placeholder="Ingrese todo lo que quiere que lleve el producto"></textarea></label><br>
+    <label>Nombre:<br><input type="text" id="customer-name" required class="small-input"></label><br>
+    <label>Observaciones (ingresa todo lo que deseas que lleve el producto):<br><textarea id="customer-note" class="small-textarea"></textarea></label><br>
     <button type="submit" class="btn-final">Finalizar pedido y enviar por WhatsApp</button>
   </form>
 </section>
 
 <!-- CONTACTO -->
-<section id="contacto">
+<section id="contacto" class="tabs">
   <h2 class="center-title">Contacto</h2>
   <p>WhatsApp: <a href="https://wa.me/573213887844" target="_blank">+57 321 388 7844</a></p>
   <p>Email: contacto@arteyestilosjs.com</p>
 </section>
 
+<!-- WHATSAPP FLOTANTE -->
+<a class="whatsapp-float" href="https://wa.me/573213887844" target="_blank">💬 WhatsApp</a>
+
 <footer>
-  <p>© Arte y Estilo SJS • Envío gratis en Bogotá • Entrega aproximada de 2 a 4 días</p>
+  <p>© Arte y Estilo SJS • Envío gratis en Bogotá • Entrega 2 a 4 días</p>
 </footer>
 
+</main>
 </body>
 </html>
