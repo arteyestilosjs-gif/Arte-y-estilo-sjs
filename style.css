@@ -1,166 +1,122 @@
-:root {
-  --logo-color: #8e44ad; 
-  --button-gradient: linear-gradient(45deg, #4da6ff, #1e90ff);
-  --button-hover: #187bcd;
-  --bg: #fafafa;
-  --card: #fff;
-  --accent: #4DA6FF;
-  --green: #25d366;
-  --banner: #fce4ec;
-}
-
-*{box-sizing:border-box;}
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  margin:0;
-  background:var(--bg);
-  color:#222;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #fafafa;
+  color: #333;
 }
 
 /* Header */
-.site-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 20px;
-  background:var(--card);
-  box-shadow:0 2px 8px rgba(0,0,0,0.05);
-  flex-wrap:wrap;
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
-.header-left{display:flex;gap:15px;align-items:center;}
-.logo{height:80px;border-radius:8px;}
-.site-header h1{margin:0;font-size:30px;color:var(--logo-color);}
-.slogan{margin:0;font-size:14px;color:#666;}
-.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
-.whatsapp-top{
-  background: var(--green);
-  color:#fff;
-  padding:8px 12px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
+.logo {
+  height: 70px;
+  border-radius: 8px;
 }
-.banner-envio{
-  background: var(--banner);
-  padding:6px 12px;
-  border-radius:6px;
-  font-size:14px;
-  text-align:center;
-  font-weight:bold;
+.site-header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #8e44ad;
+}
+.whatsapp-top {
+  background: #25d366;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.banner-envio {
+  background: #fce4ec;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
 }
 
 /* Menú */
-.main-nav{
-  display:flex;
-  gap:10px;
-  justify-content:center;
-  padding:10px;
-  background:#fff;
-  border-bottom:1px solid #eee;
-  flex-wrap:wrap;
+.main-nav {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
 }
-.main-nav button{
-  background: var(--button-gradient);
-  border:0;
-  padding:8px 14px;
-  cursor:pointer;
-  color:#fff;
-  font-weight:bold;
-  border-radius:6px;
-  transition:0.3s;
+.main-nav button {
+  background: linear-gradient(45deg, #4da6ff, #1e90ff);
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
 }
-.main-nav button:hover{background: var(--button-hover);}
-
-/* Contenido */
-main{max-width:1100px;margin:20px auto;padding:0 15px;}
-h2{color:var(--accent);}
-.back-link{float:right;font-size:12px;margin-bottom:12px;color:#3498db;text-decoration:underline;cursor:pointer;}
-
-/* Grid productos */
-.grid.productos{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:20px;
-}
-.producto{
-  background:var(--card);
-  border-radius:12px;
-  padding:15px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.08);
-  position:relative;
-  text-align:center;
-  transition:0.3s;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  height:100%;
-}
-.producto:hover{transform:translateY(-4px);}
-
-/* Imágenes uniformes */
-.producto img{
-  width:200px;
-  height:200px;
-  object-fit:cover;
-  border-radius:10px;
-  display:block;
-  margin:0 auto 12px;
+.main-nav button:hover {
+  background: #187bcd;
 }
 
-.producto h3{margin:6px 0;font-size:18px;}
-.meta{font-size:13px;color:#666;}
-.price{font-weight:bold;margin:10px 0;color:#222;}
-.controls input[type=number]{width:72px;padding:6px;border-radius:6px;border:1px solid #ddd;}
-.badge{
-  position:absolute;
-  left:12px;
-  top:12px;
-  padding:6px 8px;
-  border-radius:8px;
-  color:#fff;
-  font-size:12px;
-  background:#ff9800;
+/* Catálogo */
+.grid.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 15px;
 }
 
-/* Botones */
-.add,.btn-final{
-  background: var(--button-gradient);
-  color:#fff;
-  border:none;
-  padding:10px 12px;
-  border-radius:8px;
-  cursor:pointer;
-  margin-top:8px;
-  transition:0.3s;
-  font-weight:bold;
+.producto {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: 0.3s;
 }
-.add:hover,.btn-final:hover{background: var(--button-hover);}
-.btn-final{width:100%;}
-
-/* Carrousel */
-.carousel{overflow:hidden;margin-top:10px;}
-.carousel .track{display:flex;gap:10px;animation:slide 18s linear infinite;}
-.carousel img{width:280px;height:180px;object-fit:cover;border-radius:8px;}
-@keyframes slide{0%{transform:translateX(0)}50%{transform:translateX(-50%)}100%{transform:translateX(0)}}
-
-#gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:12px;
-  margin-top:12px;
-}
-footer{
-  background:#fff;
-  padding:15px;
-  text-align:center;
-  margin-top:20px;
-  border-top:1px solid #eee;
+.producto:hover {
+  transform: translateY(-4px);
 }
 
-/* Responsivo */
-@media(max-width:768px){
-  .site-header{flex-direction:column;align-items:center;gap:8px;}
-  .logo{height:65px;}
-  .carousel img{width:200px;height:130px;}
-  .producto img{width:140px;height:140px;}
+.producto img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 12px;
+}
+
+.price {
+  font-weight: bold;
+  margin: 10px 0;
+  color: #222;
+}
+
+.add, .btn-final {
+  background: linear-gradient(45deg, #4da6ff, #1e90ff);
+  color: #fff;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.add:hover, .btn-final:hover {
+  background: #187bcd;
+}
+
+.carrito {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
