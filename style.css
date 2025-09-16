@@ -24,7 +24,7 @@ header {
 }
 
 .logo {
-  height: 70px; /* un poco más grande */
+  height: 70px;
   width: auto;
 }
 
@@ -73,7 +73,9 @@ nav a:hover {
 }
 
 .producto img {
-  max-width: 100%;
+  width: 100%;
+  height: 200px; /* tamaño fijo para mantener proporción */
+  object-fit: cover;
   border-radius: 10px;
   margin-bottom: 10px;
 }
@@ -88,7 +90,7 @@ nav a:hover {
 }
 
 button {
-  background: #0077cc; /* azul sutil y llamativo */
+  background: #0077cc;
   color: white;
   border: none;
   padding: 10px 15px;
