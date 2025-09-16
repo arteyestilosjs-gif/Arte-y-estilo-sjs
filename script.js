@@ -18,7 +18,7 @@ document.addEventListener('click',function(e){
     if(found) found.qty+=qty;
     else cart.push({id,name,price,qty});
     updateCartCount();
-    alert('Producto añadido al carrito');
+    renderCart();
     scrollToSection('carrito');
   }
 });
@@ -30,20 +30,11 @@ function updateCartCount(){
 function renderCart(){
   const container=document.getElementById('cart-items');
   container.innerHTML='';
-  if(cart.length===0){
-    container.innerHTML='<p>Tu carrito está vacío.</p>';
-    document.getElementById('cart-summary').innerText='';
-    return;
-  }
+  if(cart.length===0){container.innerHTML='<p>Tu carrito está vacío.</p>';document.getElementById('cart-summary').innerText=''; return;}
   cart.forEach((item,idx)=>{
     const row=document.createElement('div');
     row.className='cart-row';
-    const imgMap={
-      p1:'cobija_messi.jpg',p2:'cobija_fotos.jpg',p3:'forro1.png',p4:'forro2.png',
-      p5:'cojin1.png',p6:'cojin2.png',p7:'cuadro1.png',p8:'almohada.png',
-      p9:'manta.png',p10:'cojines_set.png',p11:'tapete.png',p12:'portavelas.png'
-    };
-    row.innerHTML=`<img src="imágenes/${imgMap[item.id]}">
+    row.innerHTML=`<img src="imágenes/${item.id==='p1'?'cobija_messi.jpg': item.id==='p2'?'cobija_fotos.jpg': item.id==='p3'?'forro1.png': item.id==='p4'?'forro2.png': item.id==='p5'?'cojin1.png': item.id==='p6'?'cojin2.png': item.id==='p7'?'cuadro1.png': item.id==='p8'?'almohada.png': item.id==='p9'?'manta.png': item.id==='p10'?'cojines_set.png': item.id==='p11'?'tapete.png':'portavelas.png'}">
     <div style="flex:1"><strong>${item.name}</strong></div>
     <div style="text-align:right">
       <div>Cantidad: <input type="number" min="1" value="${item.qty}" data-idx="${idx}" class="cart-qty"></div>
@@ -54,13 +45,13 @@ function renderCart(){
     container.appendChild(row);
   });
   const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
-  document.getElementById('cart-summary').innerText='Total: $'+total.toLocaleString();
+  document.getElementById('cart-summary').innerText=`Total: $${total.toLocaleString()}`;
 }
 
 document.addEventListener('input',function(e){
   if(e.target.classList.contains('cart-qty')){
     const idx=Number(e.target.dataset.idx);
-    cart[idx].qty=Math.max(1,Number(e.target.value));
+    cart[idx].qty=Number(e.target.value)||1;
     renderCart();
     updateCartCount();
   }
@@ -68,21 +59,21 @@ document.addEventListener('input',function(e){
 
 document.addEventListener('click',function(e){
   if(e.target.classList.contains('remove')){
-    cart.splice(Number(e.target.dataset.idx),1);
+    const idx=Number(e.target.dataset.idx);
+    cart.splice(idx,1);
     renderCart();
     updateCartCount();
   }
 });
 
-function finalizeOrder(e){
-  e.preventDefault();
-  if(cart.length===0){alert('El carrito está vacío');return;}
+function finalizeOrder(event){
+  event.preventDefault();
+  if(cart.length===0){alert('Tu carrito está vacío'); return;}
   const name=document.getElementById('customer-name').value.trim();
   const note=document.getElementById('customer-note').value.trim();
-  let message=`Hola, soy ${name}, quiero hacer el siguiente pedido:\n`;
-  cart.forEach(i=>{message+=`- ${i.name} x${i.qty}\n`});
-  if(note) message+=`Observaciones: ${note}\n`;
-  message+='Gracias!';
-  const waLink='https://wa.me/573213887844?text='+encodeURIComponent(message);
+  let msg=`Hola, soy ${name}. Quiero hacer el siguiente pedido:\n`;
+  cart.forEach(i=>msg+=`${i.qty} x ${i.name} - $${i.price.toLocaleString()}\n`);
+  if(note) msg+=`Observaciones: ${note}`;
+  const waLink='https://wa.me/573213887844?text='+encodeURIComponent(msg);
   window.open(waLink,'_blank');
 }
