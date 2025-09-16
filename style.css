@@ -1,37 +1,223 @@
-/* Reset y tipografía */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
+/* Tipografía y colores generales */
 body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
   background-color: #fff8f0;
   color: #333;
-  line-height: 1.5;
 }
 
 h1, h2, h3 {
-  color: #333;
+  margin: 0.5em 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+p {
+  margin: 0.2em 0;
+}
+
+.site-header {
+  background-color: #ffcc00;
   text-align: center;
+  padding: 15px;
 }
 
-header.site-header {
-  background-color: #f6d6c1;
-  padding: 20px 10px;
-}
-
-header .header-center {
+.header-center {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-header .logo {
-  width: 150px;
+.logo {
+  max-width: 180px;
   margin-bottom: 10px;
 }
 
 .slogan {
-  font-size: 
+  font-size: 1em;
+  font-style: italic;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  background-color: #ffdd33;
+  padding: 10px 0;
+}
+
+.main-nav button {
+  background-color: #ff9900;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: 'Arial', sans-serif;
+}
+
+.main-nav button:hover {
+  background-color: #e68a00;
+}
+
+main {
+  padding: 20px;
+}
+
+/* Catálogo */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.producto {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+.producto img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.controls {
+  margin: 5px 0;
+}
+
+.controls input {
+  width: 40px;
+}
+
+.add {
+  background-color: #ff9900;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.add:hover {
+  background-color: #e68a00;
+}
+
+/* Galería */
+.carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.track {
+  display: flex;
+  gap: 10px;
+  animation: slide 20s linear infinite;
+}
+
+.track img {
+  width: 200px;
+  border-radius: 5px;
+}
+
+@keyframes slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Carrito */
+#cart-items {
+  margin-bottom: 10px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 5px;
+}
+
+.cart-item button {
+  background-color: #ff3300;
+  border: none;
+  color: white;
+  padding: 2px 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+#cart-summary {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#order-form input, #order-form textarea {
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.btn-final {
+  background-color: #ff9900;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.btn-final:hover {
+  background-color: #e68a00;
+}
+
+/* Contacto */
+#contacto a {
+  color: #ff9900;
+  text-decoration: none;
+}
+
+#contacto a:hover {
+  text-decoration: underline;
+}
+
+/* Botón flotante */
+#back-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff9900;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100;
+}
+
+#back-top:hover {
+  background-color: #e68a00;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .track img {
+    width: 150px;
+  }
+
+  .logo {
+    max-width: 140px;
+  }
+}
