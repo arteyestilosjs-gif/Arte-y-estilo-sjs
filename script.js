@@ -17,6 +17,7 @@ document.addEventListener('click',function(e){
     if(found) found.qty+=qty;
     else cart.push({id,name,price,qty});
     updateCartCount();
+    alert('Producto añadido al carrito');
     scrollToSection('carrito');
   }
 });
@@ -36,52 +37,30 @@ function renderCart(){
   cart.forEach((item,idx)=>{
     const row=document.createElement('div');
     row.className='cart-row';
-    row.innerHTML=`<img src="imagenes/${item.id==='p1'?'cobija_messi.jpg': item.id==='p2'?'cobija_fotos.jpg': item.id==='p3'?'forro1.png': item.id==='p4'?'forro2.png': item.id==='p5'?'cojin1.png': item.id==='p6'?'cojin2.png': item.id==='p7'?'cuadro1.png': item.id==='p8'?'almohada.png': item.id==='p9'?'manta.png': item.id==='p10'?'cojines_set.png': item.id==='p11'?'tapete.png':'portavelas.png'}">
-      <div style="flex:1"><strong>${item.name}</strong></div>
-      <div style="text-align:right">
-        <div>Cantidad: <input type="number" min="1" value="${item.qty}" data-idx="${idx}" class="cart-qty"></div>
-        <div>Precio: $${item.price.toLocaleString()}</div>
-        <div>Subtotal: $${(item.price*item.qty).toLocaleString()}</div>
-        <button data-idx="${idx}" class="remove">Eliminar</button>
-      </div>`;
+    row.innerHTML=`<img src="imagenes/${item.id==='p1'?'cobija_messi.jpg': item.id==='p2'?'cobija_fotos.jpg': item.id==='p3'?'forro1.png': item.id==='p4'?'forro2.png': item.id==='p5'?'cojin1.png': item.id==='p6'?'cojin2.png': item.id==='p7'?'cuadro1.png': item.id==='p8'?'almohada.png': item.id==='p9'?'manta.png': item.id==='p10'?'cojines_set.png': item.id==='p11'?'tapete.png':'portavelas.png'}" alt="${item.name}"><span>${item.name} x${item.qty}</span> <span>$${item.price*item.qty}</span> <button onclick="removeItem(${idx})">❌</button>`;
     container.appendChild(row);
   });
-  const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
-  document.getElementById('cart-summary').innerText='Total: $'+total.toLocaleString();
+  const total=cart.reduce((s,i)=>s+i.qty*i.price,0);
+  document.getElementById('cart-summary').innerText=`Total: $${total}`;
 }
 
-document.addEventListener('input',function(e){
-  if(e.target.classList.contains('cart-qty')){
-    const idx=Number(e.target.dataset.idx);
-    cart[idx].qty=Math.max(1,Number(e.target.value));
-    renderCart();
-    updateCartCount();
-  }
-});
-
-document.addEventListener('click',function(e){
-  if(e.target.classList.contains('remove')){
-    cart.splice(Number(e.target.dataset.idx),1);
-    renderCart();
-    updateCartCount();
-  }
-});
+function removeItem(idx){
+  cart.splice(idx,1);
+  updateCartCount();
+  renderCart();
+}
 
 function finalizeOrder(e){
   e.preventDefault();
-  if(cart.length===0){ alert('El carrito está vacío'); return; }
+  if(cart.length===0){alert('Tu carrito está vacío');return;}
   const name=document.getElementById('customer-name').value.trim();
   const note=document.getElementById('customer-note').value.trim();
-  let msg='Hola, quiero hacer un pedido:%0A';
-  cart.forEach(i=>msg+=`- ${i.name} x${i.qty} - $${(i.price*i.qty).toLocaleString()}%0A`);
-  const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
-  msg+=`%0ATotal: $${total.toLocaleString()}%0ANombre: ${encodeURIComponent(name)}%0A`;
-  if(note) msg+=`Observaciones: ${encodeURIComponent(note)}%0A`;
-  const phone='573213887844';
-  window.open(`https://wa.me/${phone}?text=${msg}`,'_blank');
+  let msg=`Hola, soy ${name}. Quiero hacer el siguiente pedido:\n`;
+  cart.forEach(i=>msg+=`- ${i.name} x${i.qty}\n`);
+  if(note) msg+=`Observaciones: ${note}`;
+  window.open(`https://wa.me/573213887844?text=${encodeURIComponent(msg)}`);
   cart.length=0;
-  renderCart();
   updateCartCount();
+  renderCart();
+  document.getElementById('order-form').reset();
 }
-
-document.addEventListener('DOMContentLoaded',()=>scrollToSection('catalogo'));
