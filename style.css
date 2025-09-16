@@ -1,30 +1,58 @@
 :root {
-  --logo-color: #8e44ad;
+  --logo-color: #8e44ad; 
   --button-bg: #4DA6FF;
-  --button-hover: #357ABD;
+  --button-hover: #367bce;
   --bg: #fafafa;
   --card: #fff;
   --accent: #4DA6FF;
   --green: #25d366;
   --banner: #fce4ec;
-  --font-family: 'Poppins', sans-serif;
 }
 
-body{margin:0;background:var(--bg);color:#222;font-family:var(--font-family);}
+*{box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;margin:0;background:var(--bg);color:#222;}
 
-.site-header{display:flex;flex-direction:column;align-items:center;padding:12px 18px;background:var(--card);box-shadow:0 2px 8px rgba(0,0,0,0.05);}
-.header-logo img{height:120px;margin-bottom:6px;} /* Logo más grande */
-.header-logo h1{font-size:20px;color:var(--logo-color);text-align:center;} /* Título más pequeño debajo del logo */
+.site-header{display:flex;justify-content:center;align-items:center;padding:12px;background:var(--card);flex-direction:column;gap:6px;}
+.site-header img{height:120px;}
+.site-header h1{margin:0;font-size:24px;color:var(--logo-color);}
+.slogan{margin:0;font-size:14px;color:#666;text-align:center;}
 
 .main-nav{display:flex;gap:8px;justify-content:center;padding:8px;background:#fff;border-bottom:1px solid #eee;flex-wrap:wrap;}
-.main-nav button{background: var(--button-bg); border:0; padding:4px 8px; cursor:pointer; color:#fff; font-weight:600; border-radius:6px; font-size:14px;font-family:var(--font-family);}
+.main-nav button{background: var(--button-bg); border:0; padding:6px 10px; cursor:pointer; color:#fff; font-weight:bold; border-radius:6px; transition:0.3s;}
 .main-nav button:hover{background: var(--button-hover);}
 
-.grid.productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
-.producto img{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:4px;}
-.add{background: var(--button-bg);color:#fff;border:none;padding:2px 4px;border-radius:6px;cursor:pointer;margin-top:2px;font-size:12px;width:100%;transition:0.3s;} /* Botón agregar más angosto */
+main{max-width:1100px;margin:18px auto;padding:0 12px;}
+h2{text-align:center;color:var(--accent);}
+.grid.productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+.producto{background:var(--card);border-radius:10px;padding:10px;box-shadow:0 6px 18px rgba(0,0,0,0.06);position:relative;text-align:center;transition:0.3s;}
+.producto:hover{transform:translateY(-3px);}
+.producto img{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:6px;}
+.producto h3{margin:6px 0;font-size:16px;}
+.meta{font-size:12px;color:#666;}
+.price{font-weight:bold;margin:6px 0;color:#222;}
+.controls input[type=number]{width:50px;padding:4px;border-radius:4px;border:1px solid #ddd;font-size:12px;}
+.badge{position:absolute;left:8px;top:8px;padding:4px 6px;border-radius:6px;color:#fff;font-size:11px;background:#ff9800;}
+.add{background: var(--button-bg);color:#fff;border:none;padding:6px 8px;border-radius:6px;cursor:pointer;width:80%;font-size:12px;}
 .add:hover{background: var(--button-hover);}
 
-#cart-items input.cart-qty,#customer-name,#customer-note{width:80%;padding:4px;border-radius:6px;border:1px solid #ddd;font-size:12px;} /* Cajas de texto más angostas */
-.btn-final{background: var(--button-bg);color:#fff;padding:4px 6px;border-radius:6px;border:0;cursor:pointer;margin-top:6px;width:80%;transition:0.3s;font-size:12px;} /* Botón finalizar más angosto */
+#cart-items .cart-row{display:flex;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid #eee;font-size:13px;}
+#cart-items .cart-row img{width:60px;height:50px;object-fit:cover;border-radius:6px;}
+.cart-qty{width:40px;padding:3px;border-radius:4px;border:1px solid #ddd;font-size:12px;}
+.remove{background:#ff4d4d;color:#fff;border:none;padding:4px 6px;border-radius:4px;font-size:12px;cursor:pointer;}
+.remove:hover{background:#e63939;}
+.btn-final{background: var(--button-bg);color:#fff;padding:8px 12px;border-radius:6px;border:0;cursor:pointer;width:150px;margin-top:8px;}
 .btn-final:hover{background: var(--button-hover);}
+
+.carousel{overflow:hidden;margin-top:10px;}
+.carousel .track{display:flex;gap:6px;animation:slide 18s linear infinite;}
+.carousel img{width:250px;height:150px;object-fit:cover;border-radius:8px;}
+@keyframes slide{0%{transform:translateX(0)}50%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+
+.whatsapp-float{position:fixed;bottom:12px;right:12px;background:var(--green);color:#fff;padding:10px 14px;border-radius:50px;text-decoration:none;font-weight:bold;z-index:999;}
+
+@media(max-width:768px){
+  .site-header img{height:100px;}
+  .producto img{height:120px;}
+  .carousel img{width:180px;height:110px;}
+  .btn-final{width:120px;padding:6px 10px;}
+}
