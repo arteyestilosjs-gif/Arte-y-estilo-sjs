@@ -2,14 +2,17 @@ let carrito = [];
 
 // Agregar producto al carrito
 function agregarAlCarrito(producto) {
+  // Agregar al carrito
   carrito.push(producto);
+
+  // Actualizar contador de productos
+  document.getElementById("contador-carrito").textContent = carrito.length;
+
+  // Mostrar la lista en el carrito
   mostrarCarrito();
 
   // Redirigir automáticamente al carrito
   document.getElementById("carrito").scrollIntoView({ behavior: "smooth" });
-
-  // Actualizar contador
-  document.getElementById("contador-carrito").textContent = carrito.length;
 }
 
 // Mostrar productos en carrito
@@ -33,8 +36,8 @@ function mostrarCarrito() {
 
 // Enviar pedido por WhatsApp
 function enviarPedido() {
-  const nombre = document.getElementById("nombre").value;
-  const observaciones = document.getElementById("observaciones").value;
+  const nombre = document.getElementById("nombre").value.trim();
+  const observaciones = document.getElementById("observaciones").value.trim();
 
   if (!nombre) {
     alert("Por favor ingresa tu nombre.");
@@ -49,8 +52,13 @@ function enviarPedido() {
   const productos = carrito.join(", ");
   const mensaje = `Hola, soy ${nombre}. Quiero comprar: ${productos}. 
 Observaciones: ${observaciones}`;
-  const telefono = "573213887844"; // número en formato internacional
 
+  const telefono = "573213887844"; // Número en formato internacional
   const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
   window.open(url, "_blank");
+
+  // Limpiar carrito y contador
+  carrito = [];
+  document.getElementById("contador-carrito").textContent = "0";
+  mostrarCarrito();
 }
