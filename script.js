@@ -10,7 +10,7 @@ function agregarAlCarrito(producto) {
 function mostrarCarrito() {
   const lista = document.getElementById("lista-carrito");
   lista.innerHTML = "";
-  carrito.forEach((item, index) => {
+  carrito.forEach((item) => {
     const li = document.createElement("li");
     li.textContent = item;
     lista.appendChild(li);
