@@ -37,18 +37,18 @@ function renderCart(){
   cart.forEach((item,idx)=>{
     const row=document.createElement('div');
     row.className='cart-row';
-    const imgSrc = item.id==='p1'?'cobija_messi.jpg':
-                   item.id==='p2'?'cobija_fotos.jpg':
-                   item.id==='p3'?'forro1.png':
-                   item.id==='p4'?'forro2.png':
-                   item.id==='p5'?'cojin1.png':
-                   item.id==='p6'?'cojin2.png':
-                   item.id==='p7'?'cuadro1.png':
-                   item.id==='p8'?'almohada.png':
-                   item.id==='p9'?'manta.png':
-                   item.id==='p10'?'cojines_set.png':
-                   item.id==='p11'?'tapete.png':'portavelas.png';
-    row.innerHTML=`<img src="imagenes/${imgSrc}" alt="${item.name}"><span>${item.name}</span> x ${item.qty} <span>$${item.price*item.qty}</span>
+    row.innerHTML=`<img src="imagenes/${item.id==='p1'?'cobija_messi.jpg':
+      item.id==='p2'?'cobija_fotos.jpg':
+      item.id==='p3'?'forro1.png':
+      item.id==='p4'?'forro2.png':
+      item.id==='p5'?'cojin1.png':
+      item.id==='p6'?'cojin2.png':
+      item.id==='p7'?'cuadro1.png':
+      item.id==='p8'?'almohada.png':
+      item.id==='p9'?'manta.png':
+      item.id==='p10'?'cojines_set.png':
+      item.id==='p11'?'tapete.png':
+      'portavelas.png'}' alt="${item.name}"><span>${item.name}</span> x ${item.qty} <span>$${item.price*item.qty}</span>
       <button onclick="removeItem(${idx})">Eliminar</button>`;
     container.appendChild(row);
   });
