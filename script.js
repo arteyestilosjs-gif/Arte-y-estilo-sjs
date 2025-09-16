@@ -18,7 +18,7 @@ document.addEventListener('click',function(e){
     if(found) found.qty+=qty;
     else cart.push({id,name,price,qty});
     updateCartCount();
-    renderCart();
+    alert('Producto añadido al carrito');
     scrollToSection('carrito');
   }
 });
@@ -38,14 +38,19 @@ function renderCart(){
   cart.forEach((item,idx)=>{
     const row=document.createElement('div');
     row.className='cart-row';
-    row.innerHTML=`<img src="imágenes/${item.id==='p1'?'cobija_messi.jpg': item.id==='p2'?'cobija_fotos.jpg': item.id==='p3'?'forro1.png': item.id==='p4'?'forro2.png': item.id==='p5'?'cojin1.png': item.id==='p6'?'cojin2.png': item.id==='p7'?'cuadro1.png': item.id==='p8'?'almohada.png': item.id==='p9'?'manta.png': item.id==='p10'?'cojines_set.png': item.id==='p11'?'tapete.png':'portavelas.png'}">
-      <div style="flex:1"><strong>${item.name}</strong></div>
-      <div style="text-align:right">
-        <div>Cantidad: <input type="number" min="1" value="${item.qty}" data-idx="${idx}" class="cart-qty"></div>
-        <div>Precio unidad: $${item.price.toLocaleString()}</div>
-        <div>Subtotal: $${(item.price*item.qty).toLocaleString()}</div>
-        <button data-idx="${idx}" class="remove">Eliminar</button>
-      </div>`;
+    const imgMap={
+      p1:'cobija_messi.jpg',p2:'cobija_fotos.jpg',p3:'forro1.png',p4:'forro2.png',
+      p5:'cojin1.png',p6:'cojin2.png',p7:'cuadro1.png',p8:'almohada.png',
+      p9:'manta.png',p10:'cojines_set.png',p11:'tapete.png',p12:'portavelas.png'
+    };
+    row.innerHTML=`<img src="imágenes/${imgMap[item.id]}">
+    <div style="flex:1"><strong>${item.name}</strong></div>
+    <div style="text-align:right">
+      <div>Cantidad: <input type="number" min="1" value="${item.qty}" data-idx="${idx}" class="cart-qty"></div>
+      <div>Precio unidad: $${item.price.toLocaleString()}</div>
+      <div>Subtotal: $${(item.price*item.qty).toLocaleString()}</div>
+      <button data-idx="${idx}" class="remove">Eliminar</button>
+    </div>`;
     container.appendChild(row);
   });
   const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
@@ -71,19 +76,13 @@ document.addEventListener('click',function(e){
 
 function finalizeOrder(e){
   e.preventDefault();
-  if(cart.length===0){ alert('El carrito está vacío'); return; }
+  if(cart.length===0){alert('El carrito está vacío');return;}
   const name=document.getElementById('customer-name').value.trim();
   const note=document.getElementById('customer-note').value.trim();
-  let msg='¡Hola! Quiero hacer un pedido:%0A';
-  cart.forEach(i=>msg+=`- ${i.name} x${i.qty} - $${(i.price*i.qty).toLocaleString()}%0A`);
-  const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
-  msg+=`%0ATotal: $${total.toLocaleString()}%0A`;
-  msg+=`%0ANombre: ${encodeURIComponent(name)}%0A`;
-  if(note) msg+=`Comentarios: ${encodeURIComponent(note)}%0A`;
-  const phone='573213887844';
-  window.open(`https://wa.me/${phone}?text=${msg}`,'_blank');
-  cart.length=0;
-  renderCart();
+  let message=`Hola, soy ${name}, quiero hacer el siguiente pedido:\n`;
+  cart.forEach(i=>{message+=`- ${i.name} x${i.qty}\n`});
+  if(note) message+=`Observaciones: ${note}\n`;
+  message+='Gracias!';
+  const waLink='https://wa.me/573213887844?text='+encodeURIComponent(message);
+  window.open(waLink,'_blank');
 }
-
-document.addEventListener('DOMContentLoaded',()=>scrollToSection('catalogo'));
