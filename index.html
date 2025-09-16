@@ -13,14 +13,13 @@
       <a href="#inicio">
         <img src="imagenes/logo.png" alt="Arte y Estilo SJS" class="logo">
       </a>
-      <h1>Arte y Estilo SJS</h1>
+      <h1 class="titulo-principal">Arte y Estilo SJS</h1>
     </div>
     <nav>
       <ul>
         <li><a href="#catalogo">Catálogo</a></li>
-        <li><a href="#carrito">Carrito</a></li>
+        <li><a href="#carrito">Carrito (<span id="contador-carrito">0</span>)</a></li>
         <li><a href="#contacto">Contacto</a></li>
-        <li><a href="#inicio">Regresar al inicio</a></li>
       </ul>
     </nav>
   </header>
@@ -109,6 +108,7 @@
   <section id="carrito" class="carrito">
     <h2>Carrito de compras</h2>
     <ul id="lista-carrito"></ul>
+    <div id="resumen-compra"></div>
     <div class="info-envio">
       <p><strong>Pago contra entrega solo en Bogotá</strong></p>
       <p>Entrega gratis solo en Bogotá y entrega aproximada de 2 a 4 días</p>
@@ -130,6 +130,9 @@
     <p>Teléfono: 3213887844</p>
     <p>Email: contacto@arteyestilosjs.com</p>
   </section>
+
+  <!-- Hipervínculo flotante -->
+  <a href="#catalogo" class="btn-flotante">↑ Catálogo</a>
 
   <script src="script.js"></script>
 </body>
