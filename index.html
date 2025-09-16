@@ -1,3 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🎨✨ Arte y Estilo SJS</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+<link rel="icon" type="image/png" href="imagenes/logo.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-center">
+    <img src="imagenes/logo.png" alt="logo" class="logo">
+    <h1>Arte y Estilo SJS</h1>
+    <p class="slogan">“Si lo puedes imaginar 💭, lo podemos crear ✨🎨”</p>
+  </div>
+</header>
+
+<nav class="main-nav">
+  <button onclick="scrollToSection('catalogo')">🛍️Catálogo</button>
+  <button onclick="scrollToSection('galeria')">🖼️Galería</button>
+  <button onclick="scrollToSection('carrito')">🛒Carrito(<span id='cart-count'>0</span>)</button>
+  <button onclick="scrollToSection('contacto')">📞Contacto</button>
+</nav>
+
+<main>
+
 <!-- CATÁLOGO -->
 <section id="catalogo" class="tabs active">
   <h2>Catálogo</h2>
@@ -10,7 +39,6 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-
     <div class="producto" data-id="p2" data-name="Castillo" data-price="70000">
       <img src="imagenes/castillo.png" alt="Castillo">
       <h3>Castillo</h3>
@@ -19,7 +47,6 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-
     <div class="producto" data-id="p3" data-name="Cuervo" data-price="50000">
       <img src="imagenes/cuervo.png" alt="Cuervo">
       <h3>Cuervo</h3>
@@ -28,16 +55,14 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-
     <div class="producto" data-id="p4" data-name="Gato" data-price="55000">
-      <img src="imagenes/gato.png" alt="Gato Negro">
+      <img src="imagenes/gato.png" alt="Gato">
       <h3>Gato Negro</h3>
       <p class="meta">Decoración terrorífica</p>
       <p class="price">$55,000</p>
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-
     <div class="producto" data-id="p5" data-name="Calabaza" data-price="60000">
       <img src="imagenes/calabaza.png" alt="Calabaza">
       <h3>Calabaza</h3>
@@ -46,7 +71,6 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-
     <div class="producto" data-id="p6" data-name="Bruja" data-price="65000">
       <img src="imagenes/bruja.png" alt="Bruja">
       <h3>Bruja</h3>
@@ -55,7 +79,6 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-
     <div class="producto" data-id="p7" data-name="Merry" data-price="55000">
       <img src="imagenes/merry.png" alt="Merry">
       <h3>Merry</h3>
@@ -64,7 +87,6 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-
     <div class="producto" data-id="p8" data-name="Noel" data-price="60000">
       <img src="imagenes/noel.png" alt="Noel">
       <h3>Noel</h3>
@@ -73,7 +95,6 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-
     <div class="producto" data-id="p9" data-name="Nieve" data-price="50000">
       <img src="imagenes/nieve.png" alt="Nieve">
       <h3>Nieve</h3>
@@ -82,7 +103,6 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-
     <div class="producto" data-id="p10" data-name="Navidad 1" data-price="65000">
       <img src="imagenes/navidad1.png" alt="Navidad 1">
       <h3>Navidad 1</h3>
@@ -91,7 +111,6 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-
     <div class="producto" data-id="p11" data-name="Navidad 2" data-price="65000">
       <img src="imagenes/navidad2.png" alt="Navidad 2">
       <h3>Navidad 2</h3>
@@ -100,7 +119,6 @@
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-
     <div class="producto" data-id="p12" data-name="Navidad 3" data-price="70000">
       <img src="imagenes/navidad3.png" alt="Navidad 3">
       <h3>Navidad 3</h3>
@@ -132,3 +150,34 @@
     </div>
   </div>
 </section>
+
+<!-- CARRITO -->
+<section id="carrito" class="tabs">
+  <h2>Pago contra entrega (solo en Bogotá) 🚚💵</h2>
+  <h2>Envío de 2 a 4 días ⏳ | Envío gratis solo en Bogotá 🚚🎁</h2>
+  <div id="cart-items"></div>
+  <div id="cart-summary"></div>
+  <h3>Observaciones</h3>
+  <form id="order-form" onsubmit="finalizeOrder(event)">
+    <label>Nombre:<br><input type="text" id="customer-name" required></label><br>
+    <label>Ingrese todo lo que desea que lleve el producto:<br><textarea id="customer-note"></textarea></label><br>
+    <button type="submit" class="btn-final">Finalizar pedidopor WhatsApp</button>
+  </form>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="tabs">
+  <h2>Contacto</h2>
+  <p>WhatsApp: <a href="https://wa.me/573213887844" target="_blank">+57 321 388 7844</a></p>
+  <p>Email: contacto@arteyestilosjs.com</p>
+</section>
+
+<!-- Botón flotante -->
+<button id="back-top" onclick="scrollToSection('catalogo')">⬆️</button>
+
+<footer>
+  <p>© Arte y Estilo SJS</p>
+</footer>
+
+</body>
+</html>
