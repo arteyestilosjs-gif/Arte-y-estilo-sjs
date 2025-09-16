@@ -3,6 +3,7 @@ const cart=[];
 function scrollToSection(id){
   const el=document.getElementById(id);
   if(el) el.scrollIntoView({behavior:'smooth'});
+  updateCartCount();
   if(id==='carrito') renderCart();
 }
 
@@ -17,13 +18,13 @@ document.addEventListener('click',function(e){
     if(found) found.qty+=qty;
     else cart.push({id,name,price,qty});
     updateCartCount();
-    alert('Producto añadido al carrito');
+    renderCart();
     scrollToSection('carrito');
   }
 });
 
 function updateCartCount(){
-  // opcional: mostrar contador en header si quieres
+  document.getElementById('cart-count').innerText=cart.reduce((s,i)=>s+i.qty,0);
 }
 
 function renderCart(){
@@ -56,6 +57,7 @@ document.addEventListener('input',function(e){
     const idx=Number(e.target.dataset.idx);
     cart[idx].qty=Math.max(1,Number(e.target.value));
     renderCart();
+    updateCartCount();
   }
 });
 
@@ -63,18 +65,23 @@ document.addEventListener('click',function(e){
   if(e.target.classList.contains('remove')){
     cart.splice(Number(e.target.dataset.idx),1);
     renderCart();
+    updateCartCount();
   }
 });
 
 function finalizeOrder(e){
   e.preventDefault();
+  if(cart.length===0){ alert('El carrito está vacío'); return; }
   const name=document.getElementById('customer-name').value.trim();
   const note=document.getElementById('customer-note').value.trim();
-  if(cart.length===0){ alert('El carrito está vacío'); return; }
-  let msg=`Hola, soy ${name} y quiero hacer el pedido:%0A`;
-  cart.forEach(i=>msg+=`- ${i.name} x${i.qty} -> $${(i.price*i.qty).toLocaleString()}%0A`);
-  msg+=`Observaciones: ${note}`;
-  window.open(`https://wa.me/573213887844?text=${msg}`,'_blank');
+  let msg='Hola, quiero hacer un pedido:%0A';
+  cart.forEach(i=>msg+=`- ${i.name} x${i.qty} - $${(i.price*i.qty).toLocaleString()}%0A`);
+  const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  msg+=`%0ATotal: $${total.toLocaleString()}%0A`;
+  msg+=`Nombre: ${encodeURIComponent(name)}%0A`;
+  if(note) msg+=`Observaciones: ${encodeURIComponent(note)}%0A`;
+  const phone='573213887844';
+  window.open(`https://wa.me/${phone}?text=${msg}`,'_blank');
   cart.length=0;
   renderCart();
 }
