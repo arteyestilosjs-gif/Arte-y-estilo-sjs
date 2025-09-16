@@ -19,10 +19,10 @@
 </header>
 
 <nav class="main-nav">
-  <button onclick="scrollToSection('catalogo')">🛍️Catálogo</button>
-  <button onclick="scrollToSection('galeria')">🖼️Galería</button>
-  <button onclick="scrollToSection('carrito')">🛒Carrito(<span id='cart-count'>0</span>)</button>
-  <button onclick="scrollToSection('contacto')">📞Contacto</button>
+  <button onclick="scrollToSection('catalogo')">🛍️ Catálogo</button>
+  <button onclick="scrollToSection('galeria')">🖼️ Galería</button>
+  <button onclick="scrollToSection('carrito')">🛒 Carrito (<span id='cart-count'>0</span>)</button>
+  <button onclick="scrollToSection('contacto')">📞 Contacto</button>
 </nav>
 
 <main>
@@ -31,102 +31,121 @@
 <section id="catalogo" class="tabs active">
   <h2>Catálogo</h2>
   <div class="grid productos">
-    <div class="producto" data-id="p1" data-name="Fantasmas" data-price="60000">
-      <img src="imagenes/fantasmas.png" alt="Fantasmas">
-      <h3>Fantasmas</h3>
-      <p class="meta">Decoración terrorífica</p>
+    <!-- 12 Productos -->
+    <div class="producto" data-id="p1" data-name="Cobija Deportiva" data-price="120000">
+      <span class='badge'>🔥 Más vendido</span>
+      <img src="imagenes/cobija_messi.jpg" alt="Cobija Deportiva">
+      <h3>Cobija Deportiva</h3>
+      <p class="meta">Medidas: 150x200 cm</p>
+      <p class="price">$120,000</p>
+      <div class="controls">
+        <label>Cantidad: <input type="number" min="1" value="1" class="qty"></label>
+      </div>
+      <button class="add">Agregar</button>
+    </div>
+
+    <div class="producto" data-id="p2" data-name="Cobija Bebé" data-price="90000">
+      <span class='badge'>✨ Oferta</span>
+      <img src="imagenes/cobija_fotos.jpg" alt="Cobija Bebé">
+      <h3>Cobija Bebé</h3>
+      <p class="meta">Medidas: 100x140 cm</p>
+      <p class="price">$90,000</p>
+      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
+      <button class="add">Agregar</button>
+    </div>
+
+    <div class="producto" data-id="p3" data-name="Forro Navidad 1" data-price="60000">
+      <span class='badge'>🌟 Edición limitada</span>
+      <img src="imagenes/forro1.png" alt="Forro Navidad 1">
+      <h3>Forro Navidad 1</h3>
+      <p class="meta">Medidas: 80x200 cm</p>
       <p class="price">$60,000</p>
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-    <div class="producto" data-id="p2" data-name="Castillo" data-price="70000">
-      <img src="imagenes/castillo.png" alt="Castillo">
-      <h3>Castillo</h3>
-      <p class="meta">Decoración terrorífica</p>
-      <p class="price">$70,000</p>
+
+    <div class="producto" data-id="p4" data-name="Forro Navidad 2" data-price="60000">
+      <img src="imagenes/forro2.png" alt="Forro Navidad 2">
+      <h3>Forro Navidad 2</h3>
+      <p class="meta">Medidas: 80x200 cm</p>
+      <p class="price">$60,000</p>
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-    <div class="producto" data-id="p3" data-name="Cuervo" data-price="50000">
-      <img src="imagenes/cuervo.png" alt="Cuervo">
-      <h3>Cuervo</h3>
-      <p class="meta">Decoración terrorífica</p>
+
+    <div class="producto" data-id="p5" data-name="Cojín Personalizado" data-price="50000">
+      <img src="imagenes/cojin1.png" alt="Cojín Personalizado">
+      <h3>Cojín Personalizado</h3>
+      <p class="meta">Medidas: 40x40 cm</p>
       <p class="price">$50,000</p>
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-    <div class="producto" data-id="p4" data-name="Gato" data-price="55000">
-      <img src="imagenes/gato.png" alt="Gato">
-      <h3>Gato Negro</h3>
-      <p class="meta">Decoración terrorífica</p>
-      <p class="price">$55,000</p>
+
+    <div class="producto" data-id="p6" data-name="Cojín Cumpleaños" data-price="52000">
+      <img src="imagenes/cojin2.png" alt="Cojín Cumpleaños">
+      <h3>Cojín Cumpleaños</h3>
+      <p class="meta">Medidas: 40x40 cm</p>
+      <p class="price">$52,000</p>
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-    <div class="producto" data-id="p5" data-name="Calabaza" data-price="60000">
-      <img src="imagenes/calabaza.png" alt="Calabaza">
-      <h3>Calabaza</h3>
-      <p class="meta">Decoración terrorífica</p>
-      <p class="price">$60,000</p>
+
+    <div class="producto" data-id="p7" data-name="Cuadro Collage" data-price="80000">
+      <span class='badge'>🎨 Tu diseño único</span>
+      <img src="imagenes/cuadro1.png" alt="Cuadro Collage">
+      <h3>Cuadro Collage</h3>
+      <p class="meta">Medidas: A4, A3, 50x70 cm</p>
+      <p class="price">$80,000</p>
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-    <div class="producto" data-id="p6" data-name="Bruja" data-price="65000">
-      <img src="imagenes/bruja.png" alt="Bruja">
-      <h3>Bruja</h3>
-      <p class="meta">Decoración terrorífica</p>
-      <p class="price">$65,000</p>
+
+    <div class="producto" data-id="p8" data-name="Almohada Decorativa" data-price="45000">
+      <img src="imagenes/almohada.png" alt="Almohada Decorativa">
+      <h3>Almohada Decorativa</h3>
+      <p class="meta">Medidas: 40x40 cm</p>
+      <p class="price">$45,000</p>
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
-    <div class="producto" data-id="p7" data-name="Merry" data-price="55000">
-      <img src="imagenes/merry.png" alt="Merry">
-      <h3>Merry</h3>
-      <p class="meta">Decoración navideña</p>
-      <p class="price">$55,000</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
-    </div>
-    <div class="producto" data-id="p8" data-name="Noel" data-price="60000">
-      <img src="imagenes/noel.png" alt="Noel">
-      <h3>Noel</h3>
-      <p class="meta">Decoración navideña</p>
-      <p class="price">$60,000</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
-    </div>
-    <div class="producto" data-id="p9" data-name="Nieve" data-price="50000">
-      <img src="imagenes/nieve.png" alt="Nieve">
-      <h3>Nieve</h3>
-      <p class="meta">Decoración navideña</p>
-      <p class="price">$50,000</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
-    </div>
-    <div class="producto" data-id="p10" data-name="Navidad 1" data-price="65000">
-      <img src="imagenes/navidad1.png" alt="Navidad 1">
-      <h3>Navidad 1</h3>
-      <p class="meta">Decoración navideña</p>
-      <p class="price">$65,000</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
-    </div>
-    <div class="producto" data-id="p11" data-name="Navidad 2" data-price="65000">
-      <img src="imagenes/navidad2.png" alt="Navidad 2">
-      <h3>Navidad 2</h3>
-      <p class="meta">Decoración navideña</p>
-      <p class="price">$65,000</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
-    </div>
-    <div class="producto" data-id="p12" data-name="Navidad 3" data-price="70000">
-      <img src="imagenes/navidad3.png" alt="Navidad 3">
-      <h3>Navidad 3</h3>
-      <p class="meta">Decoración navideña</p>
+
+    <div class="producto" data-id="p9" data-name="Manta Suave" data-price="70000">
+      <img src="imagenes/manta.png" alt="Manta Suave">
+      <h3>Manta Suave</h3>
+      <p class="meta">Medidas: 160x220 cm</p>
       <p class="price">$70,000</p>
       <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
       <button class="add">Agregar</button>
     </div>
+
+    <div class="producto" data-id="p10" data-name="Juego de Cojines" data-price="95000">
+      <img src="imagenes/cojines_set.png" alt="Juego de Cojines">
+      <h3>Juego de Cojines</h3>
+      <p class="meta">Medidas: 40x40 cm cada uno</p>
+      <p class="price">$95,000</p>
+      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
+      <button class="add">Agregar</button>
+    </div>
+
+    <div class="producto" data-id="p11" data-name="Tapete Decorativo" data-price="85000">
+      <img src="imagenes/tapete.png" alt="Tapete Decorativo">
+      <h3>Tapete Decorativo</h3>
+      <p class="meta">Medidas: 60x120 cm</p>
+      <p class="price">$85,000</p>
+      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
+      <button class="add">Agregar</button>
+    </div>
+
+    <div class="producto" data-id="p12" data-name="Porta Velas" data-price="35000">
+      <img src="imagenes/portavelas.png" alt="Porta Velas">
+      <h3>Porta Velas</h3>
+      <p class="meta">Decoración elegante</p>
+      <p class="price">$35,000</p>
+      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
+      <button class="add">Agregar</button>
+    </div>
+
   </div>
 </section>
 
@@ -135,18 +154,18 @@
   <h2>Galería</h2>
   <div class="carousel">
     <div class="track">
-      <img src='imagenes/fantasmas.png' alt='Fantasmas'>
-      <img src='imagenes/castillo.png' alt='Castillo'>
-      <img src='imagenes/cuervo.png' alt='Cuervo'>
-      <img src='imagenes/gato.png' alt='Gato'>
-      <img src='imagenes/calabaza.png' alt='Calabaza'>
-      <img src='imagenes/bruja.png' alt='Bruja'>
-      <img src='imagenes/merry.png' alt='Merry'>
-      <img src='imagenes/noel.png' alt='Noel'>
-      <img src='imagenes/nieve.png' alt='Nieve'>
-      <img src='imagenes/navidad1.png' alt='Navidad 1'>
-      <img src='imagenes/navidad2.png' alt='Navidad 2'>
-      <img src='imagenes/navidad3.png' alt='Navidad 3'>
+      <img src='imagenes/cobija_messi.jpg' alt='img'>
+      <img src='imagenes/cobija_fotos.jpg' alt='img'>
+      <img src='imagenes/forro1.png' alt='img'>
+      <img src='imagenes/forro2.png' alt='img'>
+      <img src='imagenes/cojin1.png' alt='img'>
+      <img src='imagenes/cojin2.png' alt='img'>
+      <img src='imagenes/cuadro1.png' alt='img'>
+      <img src='imagenes/almohada.png' alt='img'>
+      <img src='imagenes/manta.png' alt='img'>
+      <img src='imagenes/cojines_set.png' alt='img'>
+      <img src='imagenes/tapete.png' alt='img'>
+      <img src='imagenes/portavelas.png' alt='img'>
     </div>
   </div>
 </section>
@@ -161,7 +180,7 @@
   <form id="order-form" onsubmit="finalizeOrder(event)">
     <label>Nombre:<br><input type="text" id="customer-name" required></label><br>
     <label>Ingrese todo lo que desea que lleve el producto:<br><textarea id="customer-note"></textarea></label><br>
-    <button type="submit" class="btn-final">Finalizar pedidopor WhatsApp</button>
+    <button type="submit" class="btn-final">Finalizar pedido por WhatsApp</button>
   </form>
 </section>
 
