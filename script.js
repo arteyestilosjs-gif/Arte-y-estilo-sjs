@@ -3,6 +3,7 @@ const cart=[];
 function scrollToSection(id){
   const el=document.getElementById(id);
   if(el) el.scrollIntoView({behavior:'smooth'});
+  if(id==='carrito') renderCart();
 }
 
 document.addEventListener('click',function(e){
@@ -16,38 +17,66 @@ document.addEventListener('click',function(e){
     if(found) found.qty+=qty;
     else cart.push({id,name,price,qty});
     updateCartCount();
+    alert('Producto añadido al carrito');
     scrollToSection('carrito');
-    renderCart();
   }
 });
 
 function updateCartCount(){
-  document.getElementById('cart-count').innerText=cart.reduce((s,i)=>s+i.qty,0);
+  // opcional: mostrar contador en header si quieres
 }
 
 function renderCart(){
   const container=document.getElementById('cart-items');
   container.innerHTML='';
-  if(cart.length===0){ container.innerHTML='<p>Tu carrito está vacío.</p>'; document.getElementById('cart-summary').innerText=''; return; }
+  if(cart.length===0){
+    container.innerHTML='<p>Tu carrito está vacío.</p>';
+    document.getElementById('cart-summary').innerText='';
+    return;
+  }
   cart.forEach((item,idx)=>{
     const row=document.createElement('div');
     row.className='cart-row';
-    row.innerHTML=`<img src="imágenes/${item.id==='p1'?'cobija_messi.jpg': item.id==='p2'?'cobija_fotos.jpg': item.id==='p3'?'forro1.png': item.id==='p4'?'forro2.png': item.id==='p5'?'cojin1.png': item.id==='p6'?'cojin2.png': item.id==='p7'?'cuadro1.png': item.id==='p8'?'almohada.png': item.id==='p9'?'manta.png': item.id==='p10'?'cojines_set.png': item.id==='p11'?'tapete.png':'portavelas.png'}"><div>${item.name} x ${item.qty}</div><div>$${item.price*item.qty}</div><button onclick="removeItem(${idx})">❌</button>`;
+    row.innerHTML=`<img src="imagenes/${item.id==='p1'?'cobija_messi.jpg': item.id==='p2'?'cobija_fotos.jpg': item.id==='p3'?'forro1.png': item.id==='p4'?'forro2.png': item.id==='p5'?'cojin1.png': item.id==='p6'?'cojin2.png': item.id==='p7'?'cuadro1.png': item.id==='p8'?'almohada.png': item.id==='p9'?'manta.png': item.id==='p10'?'cojines_set.png': item.id==='p11'?'tapete.png':'portavelas.png'}">
+    <div style="flex:1"><strong>${item.name}</strong></div>
+    <div style="text-align:right">
+      <div>Cantidad: <input type="number" min="1" value="${item.qty}" data-idx="${idx}" class="cart-qty"></div>
+      <div>Precio unidad: $${item.price.toLocaleString()}</div>
+      <div>Subtotal: $${(item.price*item.qty).toLocaleString()}</div>
+      <button data-idx="${idx}" class="remove">Eliminar</button>
+    </div>`;
     container.appendChild(row);
   });
   const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
-  document.getElementById('cart-summary').innerText='Total: $'+total;
+  document.getElementById('cart-summary').innerText='Total: $'+total.toLocaleString();
 }
 
-function removeItem(idx){cart.splice(idx,1);updateCartCount();renderCart();}
+document.addEventListener('input',function(e){
+  if(e.target.classList.contains('cart-qty')){
+    const idx=Number(e.target.dataset.idx);
+    cart[idx].qty=Math.max(1,Number(e.target.value));
+    renderCart();
+  }
+});
+
+document.addEventListener('click',function(e){
+  if(e.target.classList.contains('remove')){
+    cart.splice(Number(e.target.dataset.idx),1);
+    renderCart();
+  }
+});
 
 function finalizeOrder(e){
   e.preventDefault();
-  const name=document.getElementById('customer-name').value;
-  const note=document.getElementById('customer-note').value;
-  if(cart.length===0){alert('El carrito está vacío');return;}
+  const name=document.getElementById('customer-name').value.trim();
+  const note=document.getElementById('customer-note').value.trim();
+  if(cart.length===0){ alert('El carrito está vacío'); return; }
   let msg=`Hola, soy ${name} y quiero hacer el pedido:%0A`;
-  cart.forEach(i=>{msg+=`${i.name} x ${i.qty} -> $${i.price*i.qty}%0A`;});
+  cart.forEach(i=>msg+=`- ${i.name} x${i.qty} -> $${(i.price*i.qty).toLocaleString()}%0A`);
   msg+=`Observaciones: ${note}`;
   window.open(`https://wa.me/573213887844?text=${msg}`,'_blank');
+  cart.length=0;
+  renderCart();
 }
+
+document.addEventListener('DOMContentLoaded',()=>scrollToSection('catalogo'));
