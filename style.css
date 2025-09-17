@@ -32,7 +32,7 @@ header {
 }
 
 .banner-ventas {
-  background: #ff9800;
+  background: #3299ED;
   color: #fff;
   padding: 8px;
   font-weight: bold;
@@ -50,7 +50,7 @@ header {
   padding: 10px;
 }
 .main-nav button {
-  background: #ff9800;
+  background: #49A5E6;
   border: none;
   padding: 10px 15px;
   margin: 5px;
@@ -60,7 +60,7 @@ header {
   cursor: pointer;
 }
 .main-nav button:hover {
-  background: #e68900;
+  background: #009DE6;
 }
 
 /* ==== SECCIONES ==== */
@@ -177,7 +177,7 @@ header {
   background: #1da955;
 }
 .banner-pago {
-  background: #ff5722;
+  background: #131B45;
   color: #fff;
   padding: 8px;
   margin: 10px 0;
@@ -199,7 +199,7 @@ header {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #ff9800;
+  background: #126BB8;
   color: #fff;
   border: none;
   padding: 10px 14px;
@@ -208,7 +208,7 @@ header {
   cursor: pointer;
 }
 #back-top:hover {
-  background: #e68900;
+  background: #2855B0;
 }
 
 /* ==== MODAL VISOR ==== */
@@ -262,3 +262,4 @@ header {
     height: 120px;
   }
 }
+
