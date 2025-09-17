@@ -1,155 +1,254 @@
+/* General */
 body {
-  font-family: 'Arial Rounded MT Bold', sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
-  background: #fdfdfd;
+  padding: 0;
+  background-color: #fff;
   color: #333;
-  text-align: center;
 }
 
-header {
-  background: #004aad;
-  color: white;
-  padding: 15px;
-}
-
-.logo-container {
+header.site-header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #fff;
+  padding: 10px 0;
+  text-align: center;
 }
 
-.logo {
-  width: 120px;
+header .logo {
+  width: 150px;
+  height: auto;
   margin-bottom: 5px;
 }
 
-.site-title {
+header h1 {
   font-size: 24px;
+  margin: 0;
 }
 
-.banner-ventas {
-  background: #007bff;
-  color: white;
+header .slogan {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Banner ventas */
+.banner {
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 8px 0;
   font-weight: bold;
-  padding: 5px;
+  font-size: 16px;
+}
+
+/* Navegación */
+nav.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
   margin: 10px 0;
-  border-radius: 8px;
 }
 
-.main-nav a {
-  margin: 0 10px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+nav.main-nav button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
-.productos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
+nav.main-nav button:hover {
+  background-color: #0056b3;
+}
+
+/* Secciones */
+section.tabs {
+  display: none;
   padding: 20px;
+}
+
+section.tabs.active {
+  display: block;
+}
+
+/* Catálogo */
+.grid.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
 }
 
 .producto {
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 10px;
-  background: white;
+  text-align: center;
 }
 
 .producto img {
   width: 100%;
-  height: 250px;
-  object-fit: contain;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
-button {
-  background: #007bff;
-  color: white;
+.producto h3 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.producto .meta {
+  font-size: 12px;
+  color: #666;
+}
+
+.producto .controls {
+  margin: 5px 0;
+}
+
+.producto .controls label {
+  font-size: 12px;
+}
+
+.producto button.add {
+  background-color: #007bff;
+  color: #fff;
   border: none;
-  padding: 6px 12px;
-  margin-top: 8px;
-  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
 }
 
-button:hover {
-  background: #0056b3;
+.producto button.add:hover {
+  background-color: #0056b3;
 }
 
-.galeria {
+/* Galería */
+.carousel {
   overflow: hidden;
-  width: 100%;
-  background: #eee;
+  position: relative;
+  margin: 20px 0;
 }
 
-.galeria-track {
+.carousel .track {
   display: flex;
-  animation: scroll 25s linear infinite;
+  gap: 10px;
+  animation: slide 20s linear infinite;
 }
 
-.galeria img {
-  width: 200px;
-  height: 200px;
-  object-fit: contain;
-  margin: 10px;
+.carousel img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
-@keyframes scroll {
+@keyframes slide {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-#carrito {
-  padding: 20px;
+/* Carrito */
+#cart-items {
+  margin-bottom: 15px;
 }
 
-.formulario {
+#cart-items .cart-item {
   display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  margin: auto;
-}
-
-.formulario label {
-  font-size: 14px;
-  margin: 5px 0 2px;
-}
-
-input, textarea {
-  padding: 6px;
+  justify-content: space-between;
   margin-bottom: 8px;
-  border-radius: 6px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+#cart-items .cart-item span {
+  font-size: 14px;
+}
+
+#cart-items .cart-item button.remove {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#cart-summary {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#order-form label {
+  font-size: 12px;
+}
+
+#order-form input, #order-form textarea {
+  width: 100%;
+  padding: 5px;
+  font-size: 12px;
+  margin-top: 2px;
+  margin-bottom: 8px;
+  border-radius: 4px;
   border: 1px solid #ccc;
 }
 
-#finalizar {
-  background: #004aad;
-  padding: 6px 12px;
+button.btn-final {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
   font-size: 14px;
 }
 
-.btn-inicio {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  background: #007bff;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 14px;
+button.btn-final:hover {
+  background-color: #0056b3;
 }
 
-.whatsapp {
+/* Botón flotante */
+#back-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: green;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 20px;
+  z-index: 1000;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#back-top:hover {
+  background-color: #0056b3;
+}
+
+/* WhatsApp */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #25D366;
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 50%;
+  font-size: 18px;
   text-decoration: none;
-  font-weight: bold;
+  z-index: 1000;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #f5f5f5;
+  font-size: 12px;
 }
