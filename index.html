@@ -12,11 +12,8 @@
 
 <header class="site-header">
   <img src="imagenes/logo.png" alt="logo" class="logo">
-  <h1>Arte y Estilo SJS</h1>
   <p class="slogan">“Si lo puedes imaginar 💭, lo podemos crear ✨🎨”</p>
 </header>
-
-<div class="banner">Ventas al por mayor y al detal</div>
 
 <nav class="main-nav">
   <button onclick="scrollToSection('catalogo')">🛍️Catálogo</button>
@@ -26,94 +23,44 @@
 </nav>
 
 <main>
+
 <!-- CATÁLOGO -->
 <section id="catalogo" class="tabs active">
   <h2>Catálogo</h2>
   <div class="grid productos">
-    <div class="producto" data-id="p1" data-name="Fantasmas">
-      <img src="imagenes/fantasmas.png" alt="Fantasmas">
-      <h3>Fantasmas</h3>
-      <p class="meta">Medidas: Personalizado, diseño completo</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
+    
+    <!-- Ejemplo producto con formulario independiente -->
+    <div class="producto">
+      <form onsubmit="addToCart(event)">
+        <img src="imagenes/fantasmas.png" alt="Fantasmas">
+        <h3>Fantasmas</h3>
+        <p class="meta">Medidas: 90x210 cm | Diseño totalmente personalizado</p>
+        <label>Cantidad: <input type="number" min="1" value="1" class="qty"></label>
+        <button type="submit" class="add">Agregar</button>
+      </form>
     </div>
-    <div class="producto" data-id="p2" data-name="Castillo">
-      <img src="imagenes/castillo.png" alt="Castillo">
-      <h3>Castillo</h3>
-      <p class="meta">Medidas: Personalizado, diseño completo</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
+
+    <div class="producto">
+      <form onsubmit="addToCart(event)">
+        <img src="imagenes/castillo.png" alt="Castillo">
+        <h3>Castillo</h3>
+        <p class="meta">Medidas: 90x210 cm | Diseño totalmente personalizado</p>
+        <label>Cantidad: <input type="number" min="1" value="1" class="qty"></label>
+        <button type="submit" class="add">Agregar</button>
+      </form>
     </div>
-    <div class="producto" data-id="p3" data-name="Cuervo">
-      <img src="imagenes/cuervo.png" alt="Cuervo">
-      <h3>Cuervo</h3>
-      <p class="meta">Medidas: Personalizado, diseño completo</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
+
+    <div class="producto">
+      <form onsubmit="addToCart(event)">
+        <img src="imagenes/cuervo.png" alt="Cuervo">
+        <h3>Cuervo</h3>
+        <p class="meta">Medidas: 90x210 cm | Diseño totalmente personalizado</p>
+        <label>Cantidad: <input type="number" min="1" value="1" class="qty"></label>
+        <button type="submit" class="add">Agregar</button>
+      </form>
     </div>
-    <div class="producto" data-id="p4" data-name="Gato">
-      <img src="imagenes/gato.png" alt="Gato">
-      <h3>Gato</h3>
-      <p class="meta">Medidas: Personalizado, diseño completo</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
-    </div>
-    <div class="producto" data-id="p5" data-name="Calabaza">
-      <img src="imagenes/calabaza.png" alt="Calabaza">
-      <h3>Calabaza</h3>
-      <p class="meta">Medidas: Personalizado, diseño completo</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
-    </div>
-    <div class="producto" data-id="p6" data-name="Bruja">
-      <img src="imagenes/bruja.png" alt="Bruja">
-      <h3>Bruja</h3>
-      <p class="meta">Medidas: Personalizado, diseño completo</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
-    </div>
-    <div class="producto" data-id="p7" data-name="Merry">
-      <img src="imagenes/merry.png" alt="Merry">
-      <h3>Merry</h3>
-      <p class="meta">Medidas: Personalizado, diseño completo</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
-    </div>
-    <div class="producto" data-id="p8" data-name="Noel">
-      <img src="imagenes/noel.png" alt="Noel">
-      <h3>Noel</h3>
-      <p class="meta">Medidas: Personalizado, diseño completo</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
-    </div>
-    <div class="producto" data-id="p9" data-name="Nieve">
-      <img src="imagenes/nieve.png" alt="Nieve">
-      <h3>Nieve</h3>
-      <p class="meta">Medidas: Personalizado, diseño completo</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
-    </div>
-    <div class="producto" data-id="p10" data-name="Navidad 1">
-      <img src="imagenes/navidad1.png" alt="Navidad 1">
-      <h3>Navidad 1</h3>
-      <p class="meta">Medidas: Personalizado, diseño completo</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
-    </div>
-    <div class="producto" data-id="p11" data-name="Navidad 2">
-      <img src="imagenes/navidad2.png" alt="Navidad 2">
-      <h3>Navidad 2</h3>
-      <p class="meta">Medidas: Personalizado, diseño completo</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
-    </div>
-    <div class="producto" data-id="p12" data-name="Navidad 3">
-      <img src="imagenes/navidad3.png" alt="Navidad 3">
-      <h3>Navidad 3</h3>
-      <p class="meta">Medidas: Personalizado, diseño completo</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
-    </div>
+
+    <!-- Agregar los demás productos igual -->
   </div>
 </section>
 
@@ -140,25 +87,28 @@
 
 <!-- CARRITO -->
 <section id="carrito" class="tabs">
-  <h2>Pago contra entrega 🚚💵 | Envío de 2 a 4 días ⏳ (Gratis en Bogotá)</h2>
+  <h2>Carrito de compras 🛒</h2>
   <div id="cart-items"></div>
+  <div id="cart-summary"></div>
   <form id="order-form" onsubmit="finalizeOrder(event)">
-    <label>Nombre:<br><input type="text" id="customer-name" required></label>
-    <label>Observaciones:<br><textarea id="customer-note"></textarea></label>
-    <button type="submit" class="btn-final">Finalizar por WhatsApp</button>
+    <label>Nombre:<br><input type="text" id="customer-name" required></label><br>
+    <label>Observaciones:<br><textarea id="customer-note"></textarea></label><br>
+    <button type="submit" class="btn-final">Finalizar compra por WhatsApp</button>
   </form>
 </section>
 
 <!-- CONTACTO -->
 <section id="contacto" class="tabs">
   <h2>Contacto</h2>
-  <p>Rellena tu contacto y te responderemos rápidamente.</p>
-  <p>WhatsApp: <a href="https://wa.me/573213887844" target="_blank">+57 321 388 7844</a></p>
-  <p>Email: contacto@arteyestilosjs.com</p>
+  <p>Envía un mensaje personalizado: <a href="https://wa.me/573213887844" target="_blank">WhatsApp +57 321 388 7844</a></p>
 </section>
+
+<!-- Botón flotante -->
+<button id="back-top" onclick="scrollToSection('catalogo')">⬆️</button>
 
 <footer>
   <p>© Arte y Estilo SJS</p>
 </footer>
+
 </body>
 </html>
