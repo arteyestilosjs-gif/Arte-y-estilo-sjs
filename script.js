@@ -1,55 +1,70 @@
 const cart = [];
 
-document.querySelectorAll('.add').forEach(button => {
-  button.addEventListener('click', () => {
-    const productDiv = button.parentElement;
-    const name = productDiv.dataset.name;
-    const qty = parseInt(productDiv.querySelector('.qty').value);
+// Scroll a sección
+function scrollToSection(id) {
+  document.querySelectorAll('.tabs').forEach(tab => tab.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-    const existing = cart.find(p => p.name === name);
-    if(existing) {
+// Agregar productos
+document.querySelectorAll('.producto .add').forEach(btn => {
+  btn.addEventListener('click', e => {
+    const product = e.target.closest('.producto');
+    const id = product.dataset.id;
+    const name = product.dataset.name;
+    const qty = parseInt(product.querySelector('.qty').value);
+
+    const existing = cart.find(item => item.id === id);
+    if (existing) {
       existing.qty += qty;
     } else {
-      cart.push({name, qty});
+      cart.push({ id, name, qty });
     }
 
-    document.getElementById('cart-count').textContent = cart.reduce((acc,p) => acc + p.qty,0);
+    updateCart();
     scrollToSection('carrito');
-    renderCart();
   });
 });
 
-function renderCart() {
-  const container = document.getElementById('cart-items');
-  container.innerHTML = '';
-  cart.forEach(p => {
+// Actualizar carrito
+function updateCart() {
+  const cartItems = document.getElementById('cart-items');
+  const cartSummary = document.getElementById('cart-summary');
+  cartItems.innerHTML = '';
+  cartSummary.innerHTML = '';
+
+  cart.forEach(item => {
     const div = document.createElement('div');
-    div.textContent = `${p.name} x ${p.qty}`;
-    container.appendChild(div);
+    div.textContent = `${item.name} x${item.qty}`;
+    cartItems.appendChild(div);
   });
+
+  cartSummary.textContent = `Total productos: ${cart.reduce((a,b) => a + b.qty,0)}`;
+  document.getElementById('cart-count').textContent = cart.reduce((a,b) => a + b.qty,0);
 }
 
-function finalizeOrder(event) {
-  event.preventDefault();
+// Finalizar orden
+function finalizeOrder(e) {
+  e.preventDefault();
+  if(cart.length === 0) {
+    alert("Agrega productos antes de finalizar.");
+    return;
+  }
+
   const name = document.getElementById('customer-name').value;
   const note = document.getElementById('customer-note').value;
-  let message = `Hola, soy ${name}. Me interesa el siguiente pedido:\n`;
-  cart.forEach(p => {
-    message += `${p.name} x ${p.qty}\n`;
+
+  let message = `Hola, soy ${name}%0A%0APedidos:%0A`;
+  cart.forEach(item => {
+    message += `${item.name} x${item.qty}%0A`;
   });
-  if(note) message += `Observaciones: ${note}\n`;
-  const whatsappUrl = `https://wa.me/573213887844?text=${encodeURIComponent(message)}`;
-  window.open(whatsappUrl,'_blank');
+  if(note) message += `%0AObservaciones: ${note}`;
+
+  window.open(`https://wa.me/573213887844?text=${message}`, '_blank');
 
   cart.length = 0;
-  renderCart();
-  document.getElementById('order-form').reset();
-  document.getElementById('cart-count').textContent = '0';
-  scrollToSection('catalogo');
-}
+  updateCart();
 
-function scrollToSection(id) {
-  document.querySelectorAll('.tabs').forEach(t => t.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('order-form').reset();
 }
