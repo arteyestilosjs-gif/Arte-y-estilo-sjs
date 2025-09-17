@@ -1,47 +1,33 @@
-let cart = [];
+let carrito = [];
 
-document.querySelectorAll('.add').forEach(btn=>{
-  btn.addEventListener('click', e=>{
-    const prod = e.target.closest('.producto');
-    const id = prod.dataset.id;
-    const name = prod.dataset.name;
-    const price = parseInt(prod.dataset.price);
-    const qty = parseInt(prod.querySelector('.qty').value);
+function agregarAlCarrito(producto) {
+  carrito.push(producto);
+  actualizarCarrito();
+  document.getElementById("carrito").scrollIntoView({ behavior: "smooth" });
+}
 
-    const exists = cart.find(p=>p.id===id);
-    if(exists){ exists.qty += qty; } else { cart.push({id,name,price,qty}); }
-
-    updateCart();
-    scrollToSection('carrito');
+function actualizarCarrito() {
+  const lista = document.getElementById("lista-carrito");
+  lista.innerHTML = "";
+  carrito.forEach((item, index) => {
+    let li = document.createElement("li");
+    li.textContent = item + " ";
+    let btn = document.createElement("button");
+    btn.textContent = "❌";
+    btn.style.fontSize = "12px";
+    btn.onclick = () => {
+      carrito.splice(index, 1);
+      actualizarCarrito();
+    };
+    li.appendChild(btn);
+    lista.appendChild(li);
   });
+}
+
+document.getElementById("finalizar").addEventListener("click", () => {
+  alert("✅ Gracias por tu compra. Nos pondremos en contacto contigo.");
+  carrito = [];
+  actualizarCarrito();
+  document.getElementById("nombre").value = "";
+  document.getElementById("observaciones").value = "";
 });
-
-function updateCart(){
-  const cartItems = document.getElementById('cart-items');
-  cartItems.innerHTML = '';
-  cart.forEach(p=>{
-    const div = document.createElement('div');
-    div.textContent = `${p.name} x ${p.qty} - $${(p.price*p.qty).toLocaleString()}`;
-    cartItems.appendChild(div);
-  });
-  document.getElementById('cart-count').textContent = cart.reduce((a,b)=>a+b.qty,0);
-}
-
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-}
-
-function finalizeOrder(e){
-  e.preventDefault();
-  const name = document.getElementById('customer-name').value;
-  const note = document.getElementById('customer-note').value;
-  let message = `Hola! Soy ${name}, quiero pedir:\n`;
-  cart.forEach(p=>{ message += `${p.name} x${p.qty}\n`; });
-  if(note) message += `Observaciones: ${note}`;
-  const url = `https://wa.me/573213887844?text=${encodeURIComponent(message)}`;
-  window.open(url,'_blank');
-  cart = [];
-  updateCart();
-  document.getElementById('order-form').reset();
-}
-function openWhatsApp(){ finalizeOrder({preventDefault:()=>{}}); }
