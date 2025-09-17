@@ -1,91 +1,154 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🎨✨ Arte y Estilo SJS</title>
-<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
-<link rel="icon" type="image/png" href="imagenes/logo.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🎨✨ Arte y Estilo SJS</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <link rel="icon" type="image/png" href="imagenes/logo.png">
 </head>
 <body>
 
-<header class="site-header">
-  <img src="imagenes/logo.png" alt="logo" class="logo">
-  <h1>Arte y Estilo SJS</h1>
-  <div class="top-banner">🛒 Ventas al por mayor y al detal 🛒</div>
-</header>
-
-<nav class="main-nav">
-  <button onclick="scrollToSection('catalogo')">🛍️ Catálogo</button>
-  <button onclick="scrollToSection('galeria')">🖼️ Galería</button>
-  <button onclick="scrollToSection('carrito')">🛒 Carrito (<span id='cart-count'>0</span>)</button>
-  <button onclick="scrollToSection('contacto')">📞 Contacto</button>
-</nav>
-
-<main>
-<section id="catalogo" class="tabs active">
-  <h2>Catálogo</h2>
-  <div class="grid productos">
-    <!-- Aquí van los 12 productos, ejemplo: -->
-    <div class="producto" data-id="p1" data-name="Cobija Deportiva" data-price="120000">
-      <img src="imagenes/cobija_messi.jpg" alt="Cobija Deportiva">
-      <h3>Cobija Deportiva</h3>
-      <p class="price">$120,000</p>
-      <div class="controls"><label>Cantidad: <input type="number" min="1" value="1" class="qty"></label></div>
-      <button class="add">Agregar</button>
+  <header class="site-header">
+    <div class="logo-container">
+      <img src="imagenes/logo.png" alt="Logo Arte y Estilo SJS" class="logo">
+      <h1 class="site-title">Arte y Estilo SJS</h1>
     </div>
-    <!-- Repetir productos hasta 12 -->
-  </div>
-</section>
-
-<section id="galeria" class="tabs">
-  <h2>Galería</h2>
-  <div class="carousel">
-    <div class="track">
-      <img src="imagenes/cobija_messi.jpg" alt="img">
-      <img src="imagenes/cobija_fotos.jpg" alt="img">
-      <img src="imagenes/forro1.png" alt="img">
-      <img src="imagenes/forro2.png" alt="img">
-      <img src="imagenes/cojin1.png" alt="img">
-      <img src="imagenes/cojin2.png" alt="img">
-      <img src="imagenes/cuadro1.png" alt="img">
-      <img src="imagenes/almohada.png" alt="img">
-      <img src="imagenes/manta.png" alt="img">
-      <img src="imagenes/cojines_set.png" alt="img">
-      <img src="imagenes/tapete.png" alt="img">
-      <img src="imagenes/portavelas.png" alt="img">
+    <div class="banner-ventas">
+      ✨ Ventas al por mayor y al detal ✨
     </div>
-  </div>
-</section>
+    <nav class="main-nav">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#galeria">Galería</a>
+      <a href="#carrito">Carrito</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
 
-<section id="carrito" class="tabs">
-  <div class="cart-banner">
-    Pago contra entrega (solo en Bogotá) 🚚💵 | Envío de 2 a 4 días ⏳
-  </div>
-  <div id="cart-items"></div>
-  <div id="cart-summary"></div>
-  <h3>Observaciones</h3>
-  <form id="order-form" onsubmit="finalizeOrder(event)">
-    <label>Nombre:<br><input type="text" id="customer-name" required></label>
-    <label>Ingrese todo lo que desea que lleve el producto:<br><textarea id="customer-note"></textarea></label>
-    <button type="submit" class="btn-final">Finalizar pedido por WhatsApp</button>
-  </form>
-</section>
+  <main>
+    <section id="catalogo">
+      <h2>Catálogo</h2>
+      <div class="productos">
+        <div class="producto">
+          <img src="imagenes/fantasmas.png" alt="Fantasmas">
+          <h3>Diseño Fantasmas</h3>
+          <p>Medidas: 90 cm x 210 cm<br>Diseño totalmente personalizado</p>
+          <button onclick="agregarAlCarrito('Diseño Fantasmas')">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+          <img src="imagenes/castillo.png" alt="Castillo">
+          <h3>Diseño Castillo</h3>
+          <p>Medidas: 90 cm x 210 cm<br>Diseño totalmente personalizado</p>
+          <button onclick="agregarAlCarrito('Diseño Castillo')">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+          <img src="imagenes/cuervo.png" alt="Cuervo">
+          <h3>Diseño Cuervo</h3>
+          <p>Medidas: 90 cm x 210 cm<br>Diseño totalmente personalizado</p>
+          <button onclick="agregarAlCarrito('Diseño Cuervo')">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+          <img src="imagenes/gato.png" alt="Gato">
+          <h3>Diseño Gato</h3>
+          <p>Medidas: 90 cm x 210 cm<br>Diseño totalmente personalizado</p>
+          <button onclick="agregarAlCarrito('Diseño Gato')">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+          <img src="imagenes/calabaza.png" alt="Calabaza">
+          <h3>Diseño Calabaza</h3>
+          <p>Medidas: 90 cm x 210 cm<br>Diseño totalmente personalizado</p>
+          <button onclick="agregarAlCarrito('Diseño Calabaza')">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+          <img src="imagenes/bruja.png" alt="Bruja">
+          <h3>Diseño Bruja</h3>
+          <p>Medidas: 90 cm x 210 cm<br>Diseño totalmente personalizado</p>
+          <button onclick="agregarAlCarrito('Diseño Bruja')">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+          <img src="imagenes/merry.png" alt="Merry">
+          <h3>Diseño Merry</h3>
+          <p>Medidas: 90 cm x 210 cm<br>Diseño totalmente personalizado</p>
+          <button onclick="agregarAlCarrito('Diseño Merry')">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+          <img src="imagenes/noel.png" alt="Noel">
+          <h3>Diseño Noel</h3>
+          <p>Medidas: 90 cm x 210 cm<br>Diseño totalmente personalizado</p>
+          <button onclick="agregarAlCarrito('Diseño Noel')">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+          <img src="imagenes/nieve.png" alt="Nieve">
+          <h3>Diseño Nieve</h3>
+          <p>Medidas: 90 cm x 210 cm<br>Diseño totalmente personalizado</p>
+          <button onclick="agregarAlCarrito('Diseño Nieve')">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+          <img src="imagenes/navidad1.png" alt="Navidad 1">
+          <h3>Diseño Navidad 1</h3>
+          <p>Medidas: 90 cm x 210 cm<br>Diseño totalmente personalizado</p>
+          <button onclick="agregarAlCarrito('Diseño Navidad 1')">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+          <img src="imagenes/navidad2.png" alt="Navidad 2">
+          <h3>Diseño Navidad 2</h3>
+          <p>Medidas: 90 cm x 210 cm<br>Diseño totalmente personalizado</p>
+          <button onclick="agregarAlCarrito('Diseño Navidad 2')">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+          <img src="imagenes/navidad3.png" alt="Navidad 3">
+          <h3>Diseño Navidad 3</h3>
+          <p>Medidas: 90 cm x 210 cm<br>Diseño totalmente personalizado</p>
+          <button onclick="agregarAlCarrito('Diseño Navidad 3')">Agregar al carrito</button>
+        </div>
+      </div>
+    </section>
 
-<section id="contacto" class="tabs">
-  <h2>Contacto</h2>
-  <p>WhatsApp: <a href="https://wa.me/573213887844" target="_blank">+57 321 388 7844</a></p>
-  <p>Email: contacto@arteyestilosjs.com</p>
-</section>
+    <section id="galeria">
+      <h2>Galería</h2>
+      <div class="galeria">
+        <div class="galeria-track">
+          <img src="imagenes/fantasmas.png" alt="Fantasmas">
+          <img src="imagenes/castillo.png" alt="Castillo">
+          <img src="imagenes/cuervo.png" alt="Cuervo">
+          <img src="imagenes/gato.png" alt="Gato">
+          <img src="imagenes/calabaza.png" alt="Calabaza">
+          <img src="imagenes/bruja.png" alt="Bruja">
+          <img src="imagenes/merry.png" alt="Merry">
+          <img src="imagenes/noel.png" alt="Noel">
+          <img src="imagenes/nieve.png" alt="Nieve">
+          <img src="imagenes/navidad1.png" alt="Navidad 1">
+          <img src="imagenes/navidad2.png" alt="Navidad 2">
+          <img src="imagenes/navidad3.png" alt="Navidad 3">
+        </div>
+      </div>
+    </section>
 
-<!-- Botón flotante -->
-<button id="back-top" onclick="scrollToSection('catalogo')">⬆️</button>
-<button class="whatsapp-btn" onclick="openWhatsApp()">💬 WhatsApp</button>
+    <section id="carrito">
+      <h2>Carrito de Compras</h2>
+      <ul id="lista-carrito"></ul>
+      <div class="formulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" placeholder="Tu nombre">
 
-<footer>
-  <p>© Arte y Estilo SJS</p>
-</footer>
+        <label for="observaciones">Observaciones:</label>
+        <textarea id="observaciones" placeholder="Escribe lo que quieres que lleve tu producto..."></textarea>
+
+        <button id="finalizar">Finalizar compra</button>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>📦 Pago contra entrega (solo en Bogotá)</p>
+      <p>🚚 Entrega gratis solo en Bogotá | Entrega aproximada: 2 a 4 días</p>
+    </section>
+  </main>
+
+  <a href="#catalogo" class="btn-inicio">⬆ Regresar al inicio</a>
+
+  <a href="https://wa.me/573001112233?text=Hola%20quiero%20más%20información%20sobre%20sus%20productos" class="whatsapp" target="_blank">💬 WhatsApp</a>
 
 </body>
 </html>
