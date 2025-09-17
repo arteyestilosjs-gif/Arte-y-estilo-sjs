@@ -1,254 +1,43 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
 
-body {
-  background-color: #fff;
-  color: #333;
-  line-height: 1.4;
-}
+body { background:#fff; color:#000; }
 
-/* Header */
-.site-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  background-color: #fff;
-  border-bottom: 2px solid #007BFF;
-}
+.site-header { text-align:center; padding:20px; }
+.logo { max-width:150px; height:auto; display:block; margin:0 auto; }
+.titulo { font-size:2rem; margin:10px 0; }
+.slogan { font-size:1rem; color:#555; margin-bottom:10px; }
+.banner-ventas { background:#2196F3; color:#fff; padding:5px; margin:10px 0; font-weight:bold; }
 
-.site-header .logo {
-  width: 180px;
-  height: auto;
-  margin-bottom: 5px;
-}
+.main-nav { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:20px; }
+.main-nav button { background:#fff; color:#2196F3; border:2px solid #2196F3; padding:10px 15px; cursor:pointer; border-radius:5px; }
+.main-nav button:hover { background:#2196F3; color:#fff; }
 
-/* Slogan */
-.slogan {
-  font-size: 1rem;
-  text-align: center;
-  color: #007BFF;
-  margin-bottom: 5px;
-}
+.grid.productos { display:grid; grid-template-columns: repeat(auto-fill,minmax(150px,1fr)); gap:15px; justify-items:center; }
+.producto { border:1px solid #ccc; padding:10px; text-align:center; border-radius:8px; transition:transform 0.2s; }
+.producto:hover { transform:scale(1.05); }
+.producto img { width:150px; height:150px; object-fit:cover; }
+.controls { margin:5px 0; }
+.controls label { font-size:0.9rem; }
+.controls input.qty { width:40px; text-align:center; }
 
-/* Banner ventas */
-.banner-ventas {
-  background-color: #007BFF;
-  color: #fff;
-  text-align: center;
-  padding: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+.add { background:#2196F3; color:#fff; border:none; padding:5px 10px; cursor:pointer; border-radius:5px; }
 
-/* Navegación */
-.main-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 15px;
-}
+.carousel { overflow:hidden; }
+.track { display:flex; animation:slide 20s linear infinite; gap:10px; }
+.track img { width:150px; height:150px; object-fit:cover; border-radius:8px; }
+@keyframes slide { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
 
-.main-nav button {
-  background-color: #fff;
-  border: 2px solid #007BFF;
-  color: #007BFF;
-  padding: 8px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: all 0.3s;
-}
+#cart-items { margin:10px 0; }
+#cart-summary { font-weight:bold; margin:10px 0; }
+.btn-final { background:#2196F3; color:#fff; padding:10px 15px; border:none; cursor:pointer; border-radius:5px; }
 
-.main-nav button:hover {
-  background-color: #007BFF;
-  color: #fff;
-}
+.banner-pago { background:#2196F3; color:#fff; text-align:center; padding:5px; margin-bottom:10px; font-weight:bold; }
 
-/* Banner títulos */
-.banner-titulo {
-  background-color: #007BFF;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+#back-top { position:fixed; bottom:20px; right:20px; background:#2196F3; color:#fff; border:none; padding:10px; border-radius:50%; cursor:pointer; }
 
-/* Grid productos */
-.grid.productos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  padding: 10px;
-}
-
-.producto {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  text-align: center;
-  padding: 5px;
-  background-color: #f9f9f9;
-  transition: transform 0.3s;
-}
-
-.producto:hover {
-  transform: scale(1.05);
-  cursor: pointer;
-}
-
-.producto img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 5px;
-  margin-bottom: 5px;
-}
-
-.producto h3 {
-  font-size: 1rem;
-  margin-bottom: 3px;
-}
-
-.producto .meta {
-  font-size: 0.8rem;
-  margin-bottom: 5px;
-}
-
-.producto .controls label {
-  font-size: 0.8rem;
-}
-
-.producto .controls input {
-  width: 50px;
-  text-align: center;
-}
-
-.producto .add {
-  margin-top: 5px;
-  background-color: #007BFF;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.producto .add:hover {
-  background-color: #0056b3;
-}
-
-/* Galería tipo banner */
-.carousel {
-  overflow: hidden;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.track {
-  display: flex;
-  animation: scroll-left 20s linear infinite;
-}
-
-.track img {
-  width: 150px;
-  height: 150px;
-  margin-right: 10px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-@keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* Carrito */
-#cart-items, #cart-summary {
-  margin: 10px auto;
-  width: 90%;
-  max-width: 500px;
-  text-align: left;
-}
-
-#order-form {
-  text-align: center;
-  margin-top: 10px;
-}
-
-#order-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 0.85rem;
-}
-
-#order-form input, #order-form textarea {
-  width: 80%;
-  padding: 5px;
-  margin-bottom: 10px;
-}
-
-.btn-final {
-  background-color: #007BFF;
-  color: #fff;
-  border: none;
-  padding: 8px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.btn-final:hover {
-  background-color: #0056b3;
-}
-
-/* WhatsApp botón */
-.btn-whatsapp {
-  display: inline-block;
-  background-color: #25D366;
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-
-.btn-whatsapp:hover {
-  background-color: #128C7E;
-}
-
-/* Botón regreso */
-#back-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #007BFF;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 100;
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-  .grid.productos {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  }
-
-  .track img {
-    width: 120px;
-    height: 120px;
-  }
-
-  .site-header .logo {
-    width: 140px;
-  }
+@media(max-width:768px){
+  .grid.productos { grid-template-columns: repeat(auto-fill,minmax(120px,1fr)); }
+  .producto img, .track img { width:120px; height:120px; }
+  .logo { max-width:100px; }
 }
