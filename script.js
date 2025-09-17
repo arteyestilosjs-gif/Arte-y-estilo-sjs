@@ -1,53 +1,55 @@
 const cart = [];
-const cartCount = document.getElementById('cart-count');
-const cartItems = document.getElementById('cart-items');
-const cartSummary = document.getElementById('cart-summary');
 
-document.querySelectorAll('.add').forEach((btn, index) => {
-  btn.addEventListener('click', () => {
-    const product = btn.parentElement;
-    const name = product.dataset.name;
-    const qty = parseInt(product.querySelector('.qty').value);
-    const itemIndex = cart.findIndex(i => i.name === name);
-    
-    if(itemIndex > -1) {
-      cart[itemIndex].qty += qty;
+document.querySelectorAll('.add').forEach(button => {
+  button.addEventListener('click', () => {
+    const productDiv = button.parentElement;
+    const name = productDiv.dataset.name;
+    const qty = parseInt(productDiv.querySelector('.qty').value);
+
+    const existing = cart.find(p => p.name === name);
+    if(existing) {
+      existing.qty += qty;
     } else {
       cart.push({name, qty});
     }
-    
-    updateCart();
+
+    document.getElementById('cart-count').textContent = cart.reduce((acc,p) => acc + p.qty,0);
     scrollToSection('carrito');
+    renderCart();
   });
 });
 
-function updateCart() {
-  cartItems.innerHTML = '';
-  cart.forEach(item => {
+function renderCart() {
+  const container = document.getElementById('cart-items');
+  container.innerHTML = '';
+  cart.forEach(p => {
     const div = document.createElement('div');
-    div.textContent = `${item.name} - Cantidad: ${item.qty}`;
-    cartItems.appendChild(div);
+    div.textContent = `${p.name} x ${p.qty}`;
+    container.appendChild(div);
   });
-  cartCount.textContent = cart.reduce((acc, i) => acc + i.qty, 0);
-  cartSummary.textContent = `Total items: ${cartCount.textContent}`;
 }
 
-function finalizeOrder(e) {
-  e.preventDefault();
+function finalizeOrder(event) {
+  event.preventDefault();
   const name = document.getElementById('customer-name').value;
   const note = document.getElementById('customer-note').value;
-  let message = `Hola, soy ${name}. Deseo comprar:\n`;
-  cart.forEach(item => {
-    message += `${item.name} - Cantidad: ${item.qty}\n`;
+  let message = `Hola, soy ${name}. Me interesa el siguiente pedido:\n`;
+  cart.forEach(p => {
+    message += `${p.name} x ${p.qty}\n`;
   });
-  if(note) message += `Observaciones: ${note}`;
-  const waURL = `https://wa.me/573213887844?text=${encodeURIComponent(message)}`;
-  window.open(waURL, '_blank');
+  if(note) message += `Observaciones: ${note}\n`;
+  const whatsappUrl = `https://wa.me/573213887844?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl,'_blank');
+
   cart.length = 0;
-  updateCart();
+  renderCart();
   document.getElementById('order-form').reset();
+  document.getElementById('cart-count').textContent = '0';
+  scrollToSection('catalogo');
 }
 
 function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+  document.querySelectorAll('.tabs').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
 }
