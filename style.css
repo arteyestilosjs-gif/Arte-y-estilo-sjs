@@ -1,138 +1,254 @@
-body {
-  font-family: Arial, sans-serif;
+/* Reset básico */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
+body {
+  background-color: #fff;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Header */
 .site-header {
-  text-align: center;
-  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 2px solid #007BFF;
 }
 
-.logo {
-  width: 150px;
-  display: block;
-  margin: 0 auto 5px auto;
+.site-header .logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 5px;
 }
 
+/* Slogan */
 .slogan {
-  font-size: 14px;
+  font-size: 1rem;
+  text-align: center;
+  color: #007BFF;
+  margin-bottom: 5px;
 }
 
+/* Banner ventas */
+.banner-ventas {
+  background-color: #007BFF;
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Navegación */
 .main-nav {
   display: flex;
   justify-content: center;
-  gap: 10px;
   flex-wrap: wrap;
-  margin: 10px 0;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
 .main-nav button {
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+  background-color: #fff;
+  border: 2px solid #007BFF;
+  color: #007BFF;
+  padding: 8px 15px;
   cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: all 0.3s;
 }
 
 .main-nav button:hover {
-  background-color: #0056b3;
+  background-color: #007BFF;
+  color: #fff;
 }
 
-.tabs {
-  display: none;
+/* Banner títulos */
+.banner-titulo {
+  background-color: #007BFF;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Grid productos */
+.grid.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
   padding: 10px;
 }
 
-.tabs.active {
-  display: block;
-}
-
-.grid.productos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
-
 .producto {
+  border: 1px solid #ccc;
+  border-radius: 8px;
   text-align: center;
-  width: 160px;
-  border: 1px solid #ddd;
   padding: 5px;
-  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: transform 0.3s;
+}
+
+.producto:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .producto img {
-  width: 150px;
+  width: 100%;
   height: 150px;
   object-fit: cover;
-  display: block;
-  margin: 0 auto;
+  border-radius: 5px;
+  margin-bottom: 5px;
 }
 
-.controls label {
-  font-size: 12px;
+.producto h3 {
+  font-size: 1rem;
+  margin-bottom: 3px;
 }
 
-.controls input.qty {
-  width: 40px;
+.producto .meta {
+  font-size: 0.8rem;
+  margin-bottom: 5px;
 }
 
-.add {
+.producto .controls label {
+  font-size: 0.8rem;
+}
+
+.producto .controls input {
+  width: 50px;
+  text-align: center;
+}
+
+.producto .add {
   margin-top: 5px;
-  width: auto;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
   padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
+.producto .add:hover {
+  background-color: #0056b3;
+}
+
+/* Galería tipo banner */
 .carousel {
   overflow: hidden;
-  white-space: nowrap;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .track {
   display: flex;
-  animation: scroll 20s linear infinite;
+  animation: scroll-left 20s linear infinite;
 }
 
 .track img {
   width: 150px;
   height: 150px;
+  margin-right: 10px;
   object-fit: cover;
-  margin: 0 5px;
+  border-radius: 5px;
 }
 
-@keyframes scroll {
+@keyframes scroll-left {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
+/* Carrito */
+#cart-items, #cart-summary {
+  margin: 10px auto;
+  width: 90%;
+  max-width: 500px;
+  text-align: left;
+}
+
+#order-form {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#order-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.85rem;
+}
+
+#order-form input, #order-form textarea {
+  width: 80%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.btn-final {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-final:hover {
+  background-color: #0056b3;
+}
+
+/* WhatsApp botón */
+.btn-whatsapp {
+  display: inline-block;
+  background-color: #25D366;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+  background-color: #128C7E;
+}
+
+/* Botón regreso */
 #back-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  padding: 5px 10px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
   z-index: 100;
 }
 
-.banner {
-  background-color: #007bff;
-  color: #fff;
-  text-align: center;
-  padding: 5px;
-  margin: 10px 0;
-  animation: moveBanner 10s linear infinite alternate;
-}
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .grid.productos {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
 
-@keyframes moveBanner {
-  0% { transform: translateX(-10px); }
-  100% { transform: translateX(10px); }
-}
-
-@media (max-width: 768px) {
-  .producto img, .track img {
+  .track img {
     width: 120px;
     height: 120px;
+  }
+
+  .site-header .logo {
+    width: 140px;
   }
 }
