@@ -49,7 +49,7 @@ document.getElementById("order-form").addEventListener("submit", function(e){
   cart.forEach(item => { message += `- ${item.name} (x${item.qty})%0A`; });
   if(note.trim() !== "") message += `📝 Observaciones: ${note}%0A`;
 
-  window.open(`https://wa.me/573213887844?text=${message}`, "_blank");
+  window.open(`https://wa.me/573014653461?text=${message}`, "_blank");
   cart = []; updateCart(); this.reset();
 });
 
@@ -106,3 +106,4 @@ updateCarousel();
 // ==================== Inicial ====================
 scrollToSection("catalogo");
 updateCart();
+
